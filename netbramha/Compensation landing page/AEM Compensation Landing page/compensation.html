@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CIBIL</title>
+		<link rel="stylesheet" href="https://www.cibil.com/content/dam/cibil/consumer/home/bootstrap.css">
+		<!-- <link rel="stylesheet" href="../css/style.css"> -->
+
+		<style>
+			@charset "UTF-8";
+
+
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				word-break:keep-all;
+			}
+
+			li {
+				list-style: none;
+			}
+
+			:root {
+				--white: #fff;
+				--sky-blue: #00a6ca;
+				--light: #f5f5f5;
+				--light-blue: #f3f0ff;
+				--grey: #eee;
+				--dark-grey: #666;
+			}
+
+			.button-style {
+				background-color: #fcd800;
+				padding: 13px 24px;
+				outline: none;
+				border: none;
+				border-radius: 50px;
+				font-weight: 400;
+				font-size: 16px;
+				color: #000000;
+				line-height: 24px;
+			}
+
+			.mb-24 {
+				margin-bottom: 24px;
+			}
+
+			.mb-40 {
+				margin-bottom: 40px !important;
+			}
+
+			.py-40 {
+				padding-top: 40px !important;
+				padding-bottom: 40px !important;
+			}
+
+			.link-style {
+				color: #004364;
+				text-decoration: underline;
+				-webkit-text-decoration-skip-ink: none;
+				text-decoration-skip-ink: none;
+			}
+
+			.fw-600 {
+				font-weight: 600 !important;
+			}
+
+			.common-padding {
+				padding: 0 120px;
+			}
+
+			.text-header {
+				font-size: 28px;
+				font-weight: 700;
+				line-height: 36px;
+			}
+
+			.text-desc {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 28px;
+				color: #000000;
+			}
+
+			.sub-text-header {
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 27px;
+				letter-spacing: 0em;
+				text-align: left;
+			}
+
+			.gap-1 {
+				gap: 0.5rem;
+			}
+
+			.gap-2 {
+				gap: 1rem;
+			}
+
+			.gap-3 {
+				gap: 1.5rem;
+			}
+
+			.gap-4 {
+				gap: 3rem;
+			}
+
+			.gap-5 {
+				gap: 4rem;
+			}
+
+			.dotted-box {
+				position: absolute;
+				width: calc(50% + 32px);
+				height: 75%;
+				border: 1px solid #00a6ca;
+				border: 2px dashed #00a6ca;
+				border-top: none;
+				border-radius: 8px;
+				border-top-right-radius: 0px;
+				z-index: -500;
+			}
+
+			.dotted-box.dotted-right {
+				top: -20px;
+				left: 50%;
+			}
+
+			.dotted-box-left {
+				top: -5rem;
+				right: 50%;
+				border-top: 2px dashed #00a6ca !important;
+				border-bottom: none;
+				border-left: none;
+				border-radius: 8px;
+			}
+
+			.color-grey {
+				color: #595959 !important;
+			}
+
+			body {
+				width: 100%;
+				height: 100vh;
+				scroll-behavior: smooth;
+			}
+
+			body .page-container {
+				min-width: 688px;
+			}
+
+			body header {
+				padding: 16px 0;
+				border-bottom: 4px solid #fcd800;
+			}
+
+			body .benifit {
+				background-color: #f7f9fa;
+				width: 100%;
+			}
+
+			body .benifit .benifit-explanation {
+				width: 600px;
+			}
+
+			body .benifit .benifit-explanation .benifit-body .text-header {
+				margin-bottom: 24px;
+			}
+
+			body .benifit .benifit-explanation .benifit-body .text-desc {
+				margin-bottom: 24px;
+			}
+
+			body .framework {
+				width: 100%;
+			}
+
+			body .framework .framework-explanation .framework-body {
+				width: 600px;
+			}
+
+			body .framework .framework-explanation .framework-body .text-desc {
+				color: #000000;
+			}
+
+			body .framework .framework-explanation .downloader .download-box {
+				min-width: 400px;
+				gap: 32px;
+				padding: 18px;
+				border-radius: 16px;
+				background-color: #e6f6fa;
+				margin-bottom: 10px;
+			}
+
+			body .framework .framework-explanation .downloader .download-box:last-child {
+				margin-bottom: 0px;
+			}
+
+			body .framework .framework-explanation .downloader .download-box .content a {
+				font-size: 16px;
+				line-height: 26px;
+				color: #004364;
+				text-decoration: underline;
+			}
+
+			body .framework .framework-explanation .downloader .download-box .images {
+				cursor: pointer;
+			}
+
+			body .framework .announcement {
+				padding: 20px 24px;
+				border-radius: 12px;
+				background-color: #f7f9fa;
+			}
+
+			body .framework .announcement .announce-text p {
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 21px;
+				text-align: left;
+				color: #004364;
+			}
+
+			body .framework .process {
+				padding: 2.5rem 2.5rem 1rem;
+				background-color: #e6f6fa;
+				border-radius: 12px;
+			}
+
+			body .framework .process .text-desc {
+				line-height: 22.4px;
+				font-size: 14px;
+			}
+
+			body .framework .process .steps .image-top {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			body .framework .process .steps .stage {
+				z-index: 999;
+			}
+
+			body .framework .process .steps .stage-box {
+				padding: 0.5rem;
+				background-color: #00a6ca;
+				border-radius: 8px;
+				word-break: break-word;
+				max-width: 318px;
+			}
+
+			body .framework .process .steps .stage1 {
+				position: relative;
+			}
+
+			body .framework .process .steps .stage1 .rbi-guidelines {
+				position: relative;
+			}
+
+			body .framework .process .steps .stage1 .rbi-guidelines .text-header {
+				font-size: 18px !important;
+				color: #ffffff !important;
+				margin-top: 2rem;
+			}
+
+			body .framework .process .steps .stage1 .rbi-guidelines .text-desc {
+				font-weight: 400 !important;
+				font-size: 14px;
+			}
+
+			body .framework .process .steps .stage1 .exceed-process {
+				/*Horizontal*/
+				border: 2px dashed #00a6ca;
+			}
+
+			body .framework .process .steps .stage1 .exceed-process p {
+				color: #00a6ca;
+				font-weight: 700;
+				font-size: 16px;
+			}
+
+			body .framework .process .steps .stage1 .compensation {
+				position: relative;
+			}
+
+			body .framework .process .steps .stage1 .compensation::after {
+				position: absolute;
+				content: "";
+				top: -35px;
+				left: 49.8%;
+				transform: translate(-50%, -50%);
+				width: 0;
+				height: 0;
+				border-left: 9px solid transparent;
+				border-right: 9px solid transparent;
+				border-top: 14px solid #00a6ca;
+			}
+
+			body .framework .process .steps .stage1 .dotted-box {
+				position: absolute;
+				width: calc(50% + 32px);
+				height: calc(100% - 5rem);
+				border: 1px solid #00a6ca;
+				top: 0;
+				left: 50%;
+				border: 2px dashed #00a6ca;
+				border-top: none;
+				border-radius: 8px;
+				border-top-right-radius: 0px;
+				z-index: -500;
+			}
+
+			body .framework .process .steps .stage2 {
+				background-color: #00a6ca;
+				height: -moz-fit-content;
+				height: fit-content;
+				margin-left: 64px;
+				position: relative;
+			}
+
+			body .framework .process .steps .stage2 a {
+				color: #004364;
+			}
+
+			body .framework .process .steps .stage2::after {
+				position: absolute;
+				content: "";
+				top: -35px;
+				left: 49.8%;
+				transform: translate(-50%, -50%);
+				width: 0;
+				height: 0;
+				border-left: 9px solid transparent;
+				border-right: 9px solid transparent;
+				border-top: 14px solid #00a6ca;
+			}
+
+			body .framework .process .steps .stage2 .account-info {
+				text-align: center;
+			}
+
+			body .framework .process .steps .stage2 .account-note {
+				background-color: #e6edf1 !important;
+			}
+
+			body .framework .process .steps .stage2 .account-note span {
+				font-weight: 600;
+			}
+
+			body .framework .process .steps .stage2 .number-top {
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				background-color: #e6edf1;
+				text-align: center;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				line-height: 30px;
+			}
+
+			body .framework .process .steps .stage2 .dotted-box.dotted-right {
+				top: -5rem;
+				border-left: none;
+				height: 320px;
+			}
+
+			body .framework .process .steps .stage3 {
+				margin-left: 64px;
+				height: -moz-fit-content;
+				height: fit-content;
+				position: relative;
+			}
+
+			body .framework .process .steps .stage3 .login_signup {
+				padding: 1rem;
+				background-color: #E6EDF1;
+				color: #004364;
+			}
+
+			body .framework .process .steps .stage3::after {
+				position: absolute;
+				content: "";
+				top: -35px;
+				left: 49.8%;
+				transform: translate(-50%, -50%);
+				width: 0;
+				height: 0;
+				border-left: 9px solid transparent;
+				border-right: 9px solid transparent;
+				border-top: 14px solid #00a6ca;
+			}
+
+			body .framework .process .steps .stage3 .dotted-box.dotted-left {
+				top: -5rem;
+				right: 50%;
+				border-top: 2px dashed #00a6ca;
+				border-left: none;
+				border-bottom: none;
+				border-radius: 8px;
+			}
+
+			body .framework .process .steps .stage3 .number-top {
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				background-color: #e6edf1;
+				text-align: center;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				line-height: 30px;
+			}
+
+			body .framework .process .steps .stage3 a {
+				color: #004364;
+			}
+
+			body .framework .process .info-msg {
+				background-color: #fff9d9;
+				border-radius: 12px;
+			}
+
+			body .framework .process .info-msg .images {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				padding: 0.2rem;
+				text-align: center;
+				background-color: #fef3b3;
+			}
+
+			body .framework .process .info-msg .images img {
+				height: 100%;
+			}
+
+			body .framework .process .info-msg ul {
+				padding-left: 1rem;
+			}
+
+			body .framework .process .info-msg ul p {
+				color: #004364;
+			}
+
+			body .framework .process .info-msg ul .bullet-point {
+				position: relative;
+				padding-left: 25px;
+				color: #004364 !important;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+			}
+
+			body .framework .process .info-msg ul .bullet-point::before {
+				content: "";
+				background-color: #004364 !important;
+				height: 4px;
+				width: 4px;
+				border-radius: 50%;
+				position: absolute;
+				left: 9.5px;
+				top: 9px;
+			}
+
+			body .faq {
+				background-color: #f5f5f5;
+				padding: 60px 120px;
+			}
+
+			body .faq .faq-header .text-header {
+				margin-bottom: 32px;
+			}
+
+			body .faq .faq-body {
+				padding: 32px;
+				border-radius: 12px;
+				border: 1px solid #bfbfbf;
+				background-color: #ffffff;
+			}
+
+			body .faq .faq-body h2 {
+				font-size: 20px;
+				font-weight: 700;
+				line-height: 20px;
+				text-align: left;
+				color: #858585;
+				text-transform: uppercase;
+			}
+
+			body .faq .faq-body .tabs {
+				width: 100%;
+				background: var(--white);
+				border-radius: 10px;
+				padding: 0 32px;
+			}
+
+			body .faq .faq-body .wrapper {
+				display: flex;
+			}
+
+			body .faq .faq-body .indicator {
+				min-width: 350px;
+				max-width: 100%;
+				overflow: auto;
+				padding: 0;
+				border-left: 1px solid var(--grey);
+			}
+
+			body .faq .faq-body .indicator li {
+				position: relative;
+				display: flex;
+				align-items: center;
+				grid-gap: 0.5rem;
+				padding: 0.8rem 1rem;
+				padding-right: 6rem;
+				cursor: pointer;
+				font-size: 18px;
+				color: #595959;
+				border-left: 4px solid transparent;
+				width: 300px;
+			}
+
+			body .faq .faq-body .indicator li:hover {
+				background: var(--light-blue);
+			}
+
+			body .faq .faq-body .indicator li.active {
+				border-left-color: var(--sky-blue);
+				color: var(--sky-blue);
+				background: var(--light-blue);
+			}
+
+			body .faq .faq-body .indicator li.active::after {
+				content: url(https://www.cibil.com/content/dam/cibil/consumer/compensation/right_arrow.svg);
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			body .faq .faq-body .content {
+				padding: 12px;
+				border: 1px solid #e1e1e1;
+				border-radius: 8px;
+				width: 100%;
+				max-height: 500px;
+				min-height: 500px;
+				overflow: auto;
+			}
+
+			body .faq .faq-body .content li {
+				display: none;
+			}
+
+			body .faq .faq-body .content li .accordion .accordion-item {
+				border-bottom: 1px solid #e1e1e1;
+				border-top: none !important;
+				border-left: none !important;
+				border-right: none !important;
+			}
+
+			body .faq .faq-body .content li .accordion .accordion-button {
+				position: relative !important;
+				padding: 1rem 2rem !important;
+				box-shadow: none !important;
+				background-color: transparent !important;
+				color: #181818 !important;
+				border: none !important;
+				line-height: 25px;
+				text-align: left;
+			}
+
+			body .faq .faq-body .content li .accordion .accordion-button:focus {
+				outline: none !important;
+			}
+
+			body .faq .faq-body .content li .accordion .accordion-button::after {
+				position: absolute;
+				content: url(https://www.cibil.com/content/dam/cibil/consumer/compensation/plus_circle.svg);
+				background-image: none !important;
+				left: 10px;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			body .faq .faq-body .content li .accordion .accordion-button[aria-expanded=true]::after {
+				content: url(https://www.cibil.com/content/dam/cibil/consumer/compensation/minus_circle.svg);
+				background-image: none !important;
+			}
+
+			body .faq .faq-body .content li .accordion .accordion-body {
+				padding: 0.5rem 0 !important;
+				color: #595959;
+			}
+
+			body .faq .faq-body .content li.active {
+				display: block;
+			}
+
+			body .faq .faq-body .content li h1 {
+				font-size: 1.5rem;
+				font-weight: 600;
+				color: var(--black);
+				margin-bottom: 0.75rem;
+			}
+
+			body .faq .faq-body .content li p {
+				margin-bottom: 0.5rem;
+				color: var(--dark-grey);
+				font-size: 0.875rem;
+			}
+
+			@media screen and (max-width < 576px) {
+				body .faq .faq-body .wrapper {
+					flex-direction: column;
+				}
+
+				body .faq .faq-body .indicator {
+					border-right: none;
+				}
+			}
+
+			body .track {
+				background-color: #e6f6fa;
+				/* border-bottom: 4px solid #fcd800; */
+				padding: 60px 120px;
+			}
+
+			body .track .text-desc {
+				color: #595959;
+				margin-bottom: 1.5rem;
+			}
+
+			body .track .card-items {
+				gap: 1rem;
+				display: grid !important;
+				grid-template-columns: repeat(auto-fit, minmax(calc(25% - 1rem), 200px));
+				grid-auto-rows: 1fr;
+
+			}
+
+			/* body .track .card {
+			box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.0588235294);
+			border-radius: 16px;
+			justify-content: space-between !important;
+			border: 1px solid #fff;
+			min-width: 288px;
+			padding: 20px 24px !important;
+			cursor: pointer;
+		}
+
+		body .track .card .header .text-header {
+			font-size: 20px !important;
+			text-align: left;
+		}
+
+		body .track .card .monthly-rate p {
+			margin-bottom: 0 !important;
+			color: #595959;
+		}
+
+		body .track .card .monthly-rate .popular {
+			padding: 4px;
+			background-color: #e6f6fa;
+			border-radius: 8px;
+			color: #00a6ca;
+		} */
+			.enquiry {
+				background-color: #e6f6fa;
+				padding: 90px 5rem;
+			}
+
+			.enquiry .header {
+				font-size: 28px;
+				font-weight: 400;
+				line-height: 36px;
+				letter-spacing: 0em;
+				text-align: center;
+			}
+
+			.enquiry .card {
+				padding: 1rem;
+				border-radius: 16px;
+				width: 100%;
+			}
+
+			.enquiry .card .text-header {
+				font-size: 20px;
+				font-weight: 400;
+				line-height: 28px;
+				letter-spacing: 0em;
+				text-align: center;
+			}
+
+			.enquiry .card .popular {
+				padding: 2px;
+				background-color: #e6f6fa;
+				border-radius: 8px;
+				color: #00a6ca;
+			}
+
+			.enquiry button {
+				width: min(100%, 600px);
+			}
+
+			/*# sourceMappingURL=enquiry.css.map */
+			.common-padding {
+				padding: 0 5rem;
+			}
+
+			.text-header {
+				font-size: 28px;
+				font-weight: 700;
+				line-height: 26px;
+			}
+
+			.text-desc {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 28px;
+				color: #000000;
+			}
+
+			.amt {
+				font-weight: 700;
+			}
+
+			.standard-width {
+				width: 250px;
+			}
+
+			.link-style {
+				text-decoration: none;
+				color: #000000;
+
+			}
+
+			.monthly-pay {
+				color: #595959;
+				font-weight: 500;
+			}
+
+			.gap-3 {
+				gap: 1rem;
+			}
+
+			a:hover {
+				color: #000000;
+			}
+
+			body .track {
+				background-color: #e6f6fa;
+				/* border-bottom: 4px solid #fcd800; */
+			}
+
+			body .track .card {
+				/* width: 350px; */
+				padding: 1rem;
+				box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.0588235294);
+				border-radius: 16px;
+				align-self: stretch;
+			}
+
+			/*
+		body .track .card:nth-child(2) {
+			border: 1px solid #005365CC;
+		} */
+
+
+
+			body .track .card .header .text-header {
+				font-size: 20px !important;
+				text-align: left;
+			}
+
+			body .track .card .monthly-rate .popular {
+				padding: 2px;
+				background-color: #e6f6fa;
+				border-radius: 8px;
+				color: #00a6ca;
+			}
+
+			.button-style {
+				background-color: #fcd800;
+				padding: 1rem;
+				outline: none;
+				border: none;
+				border-radius: 50px;
+				font-weight: 600;
+				font-size: 16px;
+				color: #000000;
+				min-width: 200px;
+				height: fit-content;
+				align-self: center;
+			}
+
+			.track-desc {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 27px;
+				letter-spacing: 0em;
+				text-align: center;
+
+
+			}
+
+			.track-desc a {
+				color: #005365;
+				font-weight: 500;
+			}
+
+			.card input[type='radio']:checked {
+				accent-color: #005365;
+			}
+
+			.card {
+				justify-content: space-between !important;
+				border: 1px solid #fff;
+			}
+
+			.card input[type='radio'] {
+				appearance: none;
+				width: 9px;
+				height: 9px;
+				border-radius: 50%;
+				outline: 1px solid #9D9D9D;
+				outline-offset: 2px;
+			}
+
+
+			.card input[type='radio']:checked {
+				background-color: #00a6ca;
+			}
+
+
+			body .footer {
+				padding-top: 44px;
+				color: #000000;
+			}
+
+			body .footer .footer-container {
+				padding: 0 6.25rem;
+				max-width: 75rem;
+				margin: auto;
+				position: relative;
+				align-items: flex-start;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item {
+				border: none;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-header {
+				background-color: #fff;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-header button {
+				font-size: 1rem;
+				font-weight: 600;
+				line-height: 1.375rem;
+				margin-bottom: 0;
+				color: #000000;
+				border-bottom: 0.0625rem solid #ddd;
+				box-shadow: none;
+				padding-left: 0;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-header button:not(.collapsed) {
+				background-color: #fff;
+				border-bottom: 0.25rem solid #00a6ca;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-header button::after {
+				display: none;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-collapse .accordion-body {
+				padding-bottom: 0;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-collapse .accordion-body ul {
+				padding-left: 0.5rem;
+				margin-bottom: 0;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-collapse .accordion-body ul li {
+				padding: 0.5rem;
+				cursor: pointer;
+			}
+
+			body .footer .footer__accordion-mobile .accordion .accordion-item .accordion-collapse .accordion-body ul li a {
+				color: #000000;
+				text-decoration: none;
+			}
+
+			body .footer .footer-accordian-desktop {
+				border-right: 0.0625rem solid #eee;
+			}
+
+			body .footer .footer-accordian-desktop .footer__accordion-item {
+				padding: 0 8px;
+			}
+
+			body .footer .footer-accordian-desktop .footer__accordion-item .footer__accordion-button {
+				border-bottom: 0.25rem solid #00a6ca;
+				padding-bottom: 0.6875rem;
+				margin-bottom: 1rem;
+			}
+
+			body .footer .footer-accordian-desktop .footer__accordion-item .footer__accordion-button .cmp-title .cmp-title__text {
+				font-size: 1.125rem;
+				min-height: 2.8125rem;
+				align-items: center;
+				display: flex;
+				font-weight: 600;
+				line-height: 1.375rem;
+				margin-bottom: 0;
+			}
+
+			body .footer .footer-accordian-desktop .footer__accordion-item .footer__accordion-collapse .cmp-list {
+				padding-left: 0 !important;
+			}
+
+			body .footer .footer-accordian-desktop .footer__accordion-item .footer__accordion-collapse .cmp-list .cmp-list__item {
+				margin-bottom: 0.625rem;
+			}
+
+			body .footer .footer-accordian-desktop .footer__accordion-item .footer__accordion-collapse .cmp-list .cmp-list__item article a {
+				color: #000000;
+				outline: none;
+				font-weight: 600;
+				line-height: 1.3rem;
+				font-size: 0.9375rem;
+				text-decoration: none;
+			}
+
+			body .footer .footer__right .footer__questions .cmp-text__paragraph {
+				margin: 0 0 2rem;
+				font-size: 1.875rem;
+				text-align: center;
+				text-transform: none;
+			}
+
+			body .footer .footer__right .footer__buttons a {
+				color: #000000;
+				text-decoration: none;
+				padding-top: 9pt !important;
+				padding-bottom: 5px !important;
+				min-height: 40px !important;
+				text-transform: uppercase !important;
+				font-size: 1rem !important;
+			}
+
+			body .footer .footer__right .footer__social-icons .cmp-genericlist__item {
+				width: 2.1875rem;
+				height: 2.1875rem;
+				margin: 0.75rem 0 0.3125rem 0.4375rem;
+			}
+
+			body .footer .footer__right .footer__logo {
+				margin: auto;
+				width: 13.75rem;
+				height: 5.75rem;
+			}
+
+			body .footer .footer__cnt-terms .footer__terms .cmp-list .cmp-list__item a {
+				color: #000000;
+				text-decoration: none;
+				font-size: 0.75rem;
+				color: #494949;
+				line-height: 0.875rem;
+			}
+
+			body .footer .footer__cnt-terms .footer__copyright .cmp-text__paragraph p {
+				font-size: 0.75rem;
+			}
+
+
+			@media screen and (width<1440px) {
+				body .track .card-items {
+					grid-template-columns: 1fr 1fr;
+					align-items: center;
+
+				}
+
+				body .track .card {
+					justify-self: center;
+					width: 350px;
+				}
+			}
+
+			@media screen and (width<720px) {
+				body .track .card-items {
+					grid-template-columns: 1fr;
+					align-items: center;
+
+				}
+			}
+
+			@media screen and (width <=991px) {
+				body .page-container .benifit .benifit-images {
+					width: 100% !important;
+				}
+
+				body .page-container .benifit .benifit-images img {
+					width: 100% !important;
+				}
+
+				body .page-container .framework .framework-body {
+					width: 100% !important;
+				}
+
+				body .page-container .framework .process .stage1 .exceed-process {
+					margin-bottom: 4rem !important;
+				}
+
+				body .page-container .framework .process .stage1 .compensation {
+					margin-bottom: 1rem;
+				}
+
+				body .page-container .framework .process .stage1 .dotted-box.dotted-box-right {
+					border-right: none !important;
+					border-bottom: none !important;
+				}
+
+				body .page-container .framework .process .stage1 .compensation::after {
+					left: 50% !important;
+				}
+
+				body .page-container .framework .process .stage2 {
+					margin-left: 0 !important;
+					margin-top: 2.5rem !important;
+				}
+
+				body .page-container .framework .process .stage2 .dotted-box.dotted-box-left {
+					border-top: none !important;
+				}
+
+				body .page-container .framework .process .stage2 .dotted-box.dotted-right {
+					border-right: none !important;
+				}
+
+				body .page-container .framework .process .stage2 .dotted-box.dotted-right {
+					border-bottom: none !important;
+				}
+
+				body .page-container .framework .process .stage3 {
+					margin-left: 0 !important;
+					margin-top: 4rem !important;
+				}
+
+				body .page-container .framework .process .stage3 .dotted-box.dotted-left {
+					border-top: none !important;
+				}
+
+				body .page-container .faq .faq-body .tabs .wrapper .indicator {
+					border-left: none;
+				}
+
+				body .page-container .faq .faq-body .tabs .wrapper .indicator li {
+					padding: 0 1rem;
+					padding-right: 1rem;
+				}
+
+				body .page-container .faq .faq-body .tabs .wrapper .indicator li.active {
+					border-bottom: 4px solid transparent !important;
+					border-left-color: transparent !important;
+					border-bottom-color: var(--sky-blue) !important;
+					color: var(--sky-blue) !important;
+					background: var(--light-blue) !important;
+				}
+
+				body .page-container .faq .faq-body .tabs .wrapper .indicator li.active::after {
+					display: none;
+				}
+
+				body .page-container .faq .faq-body .tabs .wrapper .content li {
+					max-height: 100% !important;
+					padding-bottom: 0;
+				}
+
+				body .page-container .footer__right .footer__questions .cmp-text__paragraph {
+					font-size: 1rem !important;
+					text-transform: uppercase;
+				}
+			}
+
+			@media screen and (width <=768px) {
+				.common-padding {
+					padding: 1rem !important;
+				}
+
+				body .page-container .benifit {
+					padding: 0 !important;
+				}
+
+				body .page-container .benifit .container {
+					padding: 0 !important;
+				}
+
+				body .page-container .benifit .benifit-explanation {
+					width: 100% !important;
+					padding: 1rem !important;
+				}
+
+				body .page-container .benifit .benifit-images {
+					padding: 0 !important;
+					width: 100% !important;
+				}
+
+				body .page-container .benifit .benifit-images img {
+					width: 100% !important;
+				}
+
+				body .page-container .framework {
+					padding: 20px 0 0 !important;
+					border-radius: 0 !important;
+				}
+
+				body .page-container .framework .container {
+					padding: 0 !important;
+				}
+
+				body .page-container .framework .framework-body {
+					width: 100%;
+					padding: 48px 16px 0px;
+				}
+
+				body .page-container .framework .downloader {
+					padding: 0 16px;
+				}
+
+				body .page-container .framework .announcement {
+					margin: 0 16px;
+				}
+
+				body .page-container .track {
+					padding: 20px 16px !important;
+				}
+
+
+
+				body .page-container footer {
+					padding-top: 0px;
+				}
+
+				body .page-container footer .footer-container {
+					padding: 0 1rem;
+				}
+
+				body .page-container .footer__right .footer__questions .cmp-text__paragraph {
+					font-size: 1rem !important;
+					text-transform: uppercase;
+				}
+
+			}
+
+
+			@media screen and (width > 1200px) {
+				body .page-container .footer .footer-accordian-desktop {
+					border-right: 0.0625rem solid #eee !important;
+				}
+			}
+
+			/*# sourceMappingURL=style.css.map */
+		</style>
+	</head>
+
+	<body onload="setButtonLink()" style="font-family: 'intro';">
+	<div class=" page-container">
+		<!-- <header class="common-padding py-3 d-flex justify-content-between align-items-center">
+			<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/cibil-header-logo.svg" alt="" class="pe-4">
+			<p class="mb-0">ENGLISH</p>
+		</header> -->
+		<section class="benifit common-padding py-0 ">
+			<div class="container d-flex justify-content-lg-between pe-lg-0 gap-3 pb-0  flex-lg-row flex-column
+		">
+				<div class="benifit-explanation py-40">
+					<div class="benifit-body">
+						<p class="text-header" style="line-height: 30px;">Empowering You: Understanding RBI’s Framework for Compensation
+						</p>
+						<p class="text-desc">Discover the compensation framework outlined by the RBI circular.</p>
+					</div>
+					<button class="button-style text-uppercase" href="#read-more">Read More</button>
+				</div>
+				<div class="benifit-images">
+					<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/compensation_banner.jpg" alt="">
+				</div>
+			</div>
+		</section>
+		<section class="framework common-padding py-40">
+			<div class="container">
+				<div class="framework-explanation d-flex justify-content-between gap-3 flex-lg-row flex-column">
+					<div class="framework-body w-md-full">
+						<p class="text-header">What is the RBI compensation framework?</p>
+						<p class="text-desc">The RBI vide its circular (RBI/2023-24/72) dated October 26, 2023, has directed CICs and CIs to implement a compensation framework for delayed updation/rectification of credit information. As per the said circular CIs have been granted a period of 21 calendar days and CICs have 9 calendar days to resolve a dispute (i.e. 30 days in total). </p>
+						<p class="text-desc">Failure of either the banks/financial Institutions and / or CIBIL entitles you to receive a compensation of ₹100/- for each day of delay from the banks/financial Institutions and/ or CIBIL (as applicable), shall be credited to the provided account details. This compensation framework becomes effective from April 26, 2024.</p>
+					</div>
+					<div class="downloader mb-3 ">
+						<div class="download-box d-flex  justify-content-between align-items-center">
+							<div class="content">
+								<p class="sub-text-header mb-1">Framework for compensation</p>
+								<a href="https://www.cibil.com/content/dam/cibil/consumer/compensation/Framework-for-Compensation.pdf" style="text-decoration-skip-ink: none;" target="_self">Download PDF</a>
+							</div>
+							<div class="images">
+								<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/pdf-image.svg" alt="">
+							</div>
+						</div>
+
+						<div class="download-box d-flex  justify-content-between align-items-center">
+							<div class="content">
+								<p class="sub-text-header mb-1">Regulatory Disclosure 2023-2024</p>
+								<a href="https://www.cibil.com/content/dam/cibil/consumer/compensation/compensation_2023-2024.pdf" style="text-decoration-skip-ink: none;" target="_self">Download PDF</a>
+							</div>
+							<div class="images">
+								<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/pdf-image.svg" alt="">
+							</div>
+						</div>
+						<div class="download-box d-flex  justify-content-between align-items-center">
+							<div class="content">
+								<p class="sub-text-header mb-1">Regulatory Disclosure 2021-2023</p>
+								<a href="https://www.cibil.com/content/dam/cibil/consumer/compensation/compensation_2021-2023.pdf" style="text-decoration-skip-ink: none;" target="_self">Download PDF</a>
+							</div>
+							<div class="images">
+								<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/pdf-image.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="announcement d-flex gap-1 align-items-center mb-40">
+					<div class="images">
+						<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/campaign-image.svg" alt="" class="me-3">
+					</div>
+					<div class="announce-text">
+						<p class="mb-0">This compensation framework becomes effective from April 26, 2024. Disputes initiated prior
+							to
+							April 26, 2024 and subsequently closed will not fall under the provisions of this circular, and therefore,
+							compensation will not be applicable.</p>
+					</div>
+				</div>
+				<div class="process ">
+					<div class="steps d-flex justify-content-center mb-2 justify-content-lg-center flex-lg-row flex-column mb-4  align-items-center" style="position:relative;z-index:0;">
+						<div class="stage1 stage">
+							<div class="rbi-guidelines text-center stage-box mb-4">
+								<p class="text-header">RBI Guidelines</p>
+								<p class="text-desc stage-box bg-white">Dispute to be resolved within 30 days from date of receipt by
+									CIBIL or banks/financial institutions.</p>
+								<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/RBI_logo.svg" alt="" class="image-top">
+							</div>
+							<div class="exceed-process stage-box bg-white mb-5 text-center">
+								<p class="mb-0 text-desc">If dispute resolution exceeds 30 days</p>
+							</div>
+							<div class="rbi-guidelines text-center stage-box  compensation">
+								<p class="text-header">₹100/day</p>
+								<p class="text-desc bg-white stage-box ">You are entitled to a compensation of Rs.100 for each day until
+									the closure of
+									dispute.
+								</p>
+								<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/compensation-image.svg" alt="" class="image-top">
+							</div>
+							<div class="dotted-box dotted-box-right"></div>
+						</div>
+						<div class="stage2 stage mt-5 stage-box text-center">
+							<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/account-edit.svg" alt="" class="image-top account-edit">
+							<div class="stage-box mt-5 bg-white position-relative account-info ">
+								<p class="mb-0 mt-3 text-desc">The compensation will be credited to the account information shared at
+									the time of
+									dispute
+									initiation.</p>
+								<div class="number-top ">1</div>
+							</div>
+							<div class="stage-box mt-4 bg-white position-relative account-info ">
+								<p class="mb-0 mt-3 text-desc">If you have not added account information for the dispute raised, you can
+									do it from below.*
+								</p>
+								<a href="#" class="link-style text-underline-skip">Contact us page</a>
+								<div class="number-top ">2</div>
+							</div>
+							<div class="stage-box mt-4 bg-white position-relative account-note mb-3 text-start">
+								<p class="mb-0 text-center text-desc">* Applicable if you raised a dispute via offline channels -
+									Walk-in or Letter.</p>
+
+							</div>
+							<div class="dotted-box dotted-box-left"></div>
+							<div class="dotted-box dotted-right"></div>
+
+						</div>
+						<div class="stage3 stage stage-box mt-5 text-center">
+							<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/bank.svg" alt="" class="image-top account-edit">
+							<div class="stage-box mt-5 bg-white position-relative account-info text-center mb-2">
+								<p class="mb-0 mt-3 text-desc">If the dispute is delayed, compensation will be provided by the banks/financial
+									and/or CIBIL,
+									as applicable. </p>
+								<div class="number-top ">1</div>
+
+							</div>
+							<div class="cta mb-4">
+								<a href="" class="text-center">Learn More</a>
+							</div>
+
+
+							<div class="stage-box mt-4 bg-white position-relative account-info mb-3">
+								<p class="mb-0 mt-3 text-desc">Compensation table can be viewed through CIBIL Dashbaord.</p>
+								<div class="number-top ">2</div>
+							</div>
+
+							<div class="text-center login_signup stage-box">
+								<p class="mb-0 text-desc"><a href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL&amp;_gl=1*hjy389*_ga*MTI4MDk5MjkxNy4xNzA0NDQyOTAx*_ga_GGL6JJ79K2*MTcwNDgwNDcyNC4yLjEuMTcwNDgwNDc1Mi4zMi4wLjA.&amp;_ga=2.260190734.221542482.1704804725-1280992917.1704442901&amp;_gac=1.191663576.1704804725.CjwKCAiA-vOsBhAAEiwAIWR0TQrp5H4YHNCsrq2Cn71cuvfrb5wocqP_GJKfPWPRPaxJYRX0c3T5_RoCjMEQAvD_BwE" class="link-style">Login</a> if you already have a CIBIL account or <a href="https://www.cibil.com/select-plan" class="link-style">sign up</a> to
+									access your FREE annual credit report.</p>
+							</div>
+
+							<div class="dotted-box dotted-left "></div>
+
+						</div>
+					</div>
+					<div class="d-flex align-items-start info-msg justify-content-center p-3">
+						<div class="images">
+							<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/info.svg" alt="">
+						</div>
+							<p class="text-desc">As per the RBI Guidelines, the onus of providing accurate details will lie with the complainant and the banks/financial institution
+								and or CIBIL will not be held responsible for any incorrect information provided by the complainant.</p>
+				
+					</div>
+				</div>
+			</div>
+
+		</section>
+		<section class="faq common-padding ">
+			<div class="container">
+				<div class="faq-header">
+					<p class="text-header">FAQs</p>
+				</div>
+				<div class="faq-body">
+					<h2 class="" style="margin-bottom: 36px;">Question Sections</h2>
+					<div class="tabs">
+						<div class="wrapper d-flex gap-lg-5 gap-2 flex-lg-row flex-column">
+							<ul class="indicator d-flex flex-row flex-lg-column">
+								<li class="active " data-target="#guidelines">Compensation Guidelines</li>
+								<li data-target="#eligibility"> Compensation Eligibility</li>
+								<li data-target="#calculation"> Compensation Calculation</li>
+								<li data-target="#general"> General Questions</li>
+
+							</ul>
+							<ul class="content">
+								<li class="active" id="guidelines">
+
+									<div class="accordion" id="accordionExample">
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+													A dispute must be resolved within what time?
+												</button>
+											</h2>
+											<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+												<div class="accordion-body">
+													The RBI vide its circular (RBI/2023-24/72) dated October 26, 2023, has directed CICs and CIs to implement a compensation framework for delayed updation/rectification of credit information. As per the said circular CIs have been granted a period of 21 calendar days and CICs have 9 calendar days to resolve a dispute (i.e. 30 days in total).
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+
+													Is there any provision for compensation due to a delay in dispute resolution?
+												</button>
+											</h2>
+											<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+												<div class="accordion-body">
+													Yes, compensation is payable to the complainant if a dispute is not resolved within thirty (30) calendar days from the date of that the dispute or complaint was initially filed. Complainants are entitled to a compensation of ₹100 per calendar day in case their complaint is not resolved within a period of thirty (30) calendar days from the date of the initial filing of the complaint by the complainant with a CI/ CIC. CIs have been granted a period of 21 calendar days and CICs have nine calendar days to resolve a dispute (i.e. 30 days in total). The bifurcation of the amount to be payable by the CI and the CIC in case the complaint is resolved beyond a period of 30 calendar days is mentioned in detail in the said circular.
+
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+
+													Is there a limit on the compensation amount for delays in dispute resolution?
+												</button>
+											</h2>
+											<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+												<div class="accordion-body">
+													The compensation amount is capped at ₹100 per calendar day after the initial 30-day period for delays in updating or rectifying credit information, with the overall limit determined by the total delay in resolving the dispute or complaint. Therefore, compensation will be applicable in all cases when resolution of the complaint exceeds thirty (30) days from the date of its filing, irrespective of whether changes are required in the credit information or not.
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+													Can compensation be claimed for historical credit information discrepancies?
+												</button>
+											</h2>
+											<div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+												<div class="accordion-body">This compensation framework is effective from April 26, 2024. Disputes initiated prior to April 26, 2024, and subsequently closed will not be liable for compensation.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+
+													Is compensation applicable for both consumers and commercial entities?
+												</button>
+											</h2>
+											<div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+												<div class="accordion-body">
+													Yes, the compensation framework applies to both individual consumers and commercial entities.
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</li>
+
+								<li id="eligibility">
+
+									<div class="accordion" id="accordionExample2">
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecOne" aria-expanded="true" aria-controls="collapsSeceOne">
+													Am I eligible for compensation if my complaint is rejected after a delay of more than 30 days?
+
+												</button>
+											</h2>
+											<div id="collapseSecOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">Compensation is applicable for delays in resolving complaints exceeding 30 calendar days, even in cases where no changes or updates are necessary in the CIR. The emphasis of the circular is on the overall time taken to address the dispute, regardless of the need for changes or rectifications in the credit information in the CIR.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecTwo" aria-expanded="false" aria-controls="collapseSecTwo">
+
+													Is the compensation framework applicable to all services offered by CIBIL?
+												</button>
+											</h2>
+											<div id="collapseSecTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">
+													It is important to note that the compensation pertains to delays in dispute resolution and is not applicable to any other services provided by CIBIL.
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecThree" aria-expanded="false" aria-controls="collapseSecThree">
+													How is the compensation amount calculated?
+												</button>
+											</h2>
+											<div id="collapseSecThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">The compensation amount is calculated based on the number of calendar days beyond the permissible period of thirty (30) days within which the dispute or complaint should be resolved. The daily compensation is ₹100, subject to the overall delay.</div>
+											</div>
+										</div>
+
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecFour" aria-expanded="false" aria-controls="collapseSecFour">
+													How can a consumer ensure that he/she receives compensation for delay?
+												</button>
+											</h2>
+											<div id="collapseSecFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">It is essential for consumers to provide correct account information, such as the bank name, account number, and IFSC code, at the time of registering the complaint.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecFive" aria-expanded="false" aria-controls="collapseSecFive">
+													Is there any mechanism to track the status of compensation?
+												</button>
+											</h2>
+											<div id="collapseSecFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">To enquire about the status of compensation for delays in dispute resolution, the consumer can contact the customer helpline of the relevant CI or CIBILwith the respective dispute reference number allocated to them.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecSix" aria-expanded="false" aria-controls="collapseSecSix">
+													Can consumers claim compensation if they are not satisfied with the resolution provided?
+												</button>
+											</h2>
+											<div id="collapseSecSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">Compensation is applicable only if the dispute or complaint is not resolved within the stipulated timeframe of thirty (30) calendar days from the date of the initial filing of the dispute. Unsatisfactory resolution, while a valid concern, is not sufficient reason for compensation.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecSeven" aria-expanded="false" aria-controls="collapseSecSeven">
+													I disagree with the compensation amount. What should I do?
+												</button>
+											</h2>
+											<div id="collapseSecSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">In case of disagreement with the compensation provided, consumers can access the dispute dashboard for more information about how the compensation was calculated. The dispute dashboard will provide details about the amount payable by the CI and CIBIL, ensuring transparency and clarity in the compensation process.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecEight" aria-expanded="false" aria-controls="collapseSecEight">
+													How will the consumer receive the compensation amount?
+												</button>
+											</h2>
+											<div id="collapseSecEight" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">The compensation amount will be credited to the bank account details provided by the complainant when they register the complaint. As per RBI guidelines, the onus of providing accurate details lies with the complainant and the CI and or CIC will not be held responsible for any incorrect information provided by them.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecNine" aria-expanded="false" aria-controls="collapseSecNine">
+													Who will pay the compensation amount, the CI or CIC?
+												</button>
+											</h2>
+											<div id="collapseSecNine" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">The compensation amount to be paid to the consumer by the respective CI/s and CIC will be in proportion to the actual delay caused by the respective CI/s ad CIC in resolving the dispute .Complainants can access the dispute dashboard for details related to compensation calculation. The dispute dashboard will provide details about the amount payable by the respective CI/s and CIC, ensuring transparency and clarity in the compensation process.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecTen" aria-expanded="false" aria-controls="collapseSecTen">
+													How long will it take for the compensation to be paid?
+												</button>
+											</h2>
+											<div id="collapseSecTen" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">According to the RBI circular, the compensation should be paid into the account nominated by the complainant within five working days of the complaint being resolved.</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecEle" aria-expanded="false" aria-controls="collapseSecEle">
+													If a consumer shares third-party details to receive compensation, will that be considered?
+												</button>
+											</h2>
+											<div id="collapseSecEle" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+												<div class="accordion-body">Yes, as per the RBI guidelines, the onus of providing correct bank account details for the payment of the compensation lies with the complainant. Kindly note that compensation is applicable solely to domestic or local accounts and is not valid for non-resident Indian (NRI) accounts.</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<li id="calculation">
+									<div class="accordion" id="accordionExample4">
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourthOne" aria-expanded="true" aria-controls="collapsFourthOne">
+													How is the compensation amount divided among banks/financial institutions and Credit Information Companies (CICs)?
+												</button>
+											</h2>
+											<div id="collapseFourthOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample4">
+												<div class="accordion-body">
+													According to the guidelines in the circular there is an overall limit of thirty (30) days to resolve the complaint. CI has twenty-one (21) days and CICs nine (9) days for complete resolution of the complaint. A CI shall pay compensation to the complainant if the CI has failed to send updated credit information to the CICs within twenty-one (21) calendar days of being informed by the complainant or a CIC. A CIC shall pay compensation to the complainant if it has failed to resolve the complaint within the remainder of 9 (nine) calendar days of being informed by the complainant or a CI, despite the CI having furnished the updated credit information to the CIC within twenty-one (21) calendar days of being informed by the complainant or the CIC. For the ease of reference the bifurcation of the amount to be payable by the CI and the CIC in case the complaint is resolved beyond a period of 30 calendar days is mentioned in detail in the said circular.
+
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourthTwo" aria-expanded="false" aria-controls="collapseFourthTwo">
+													What happens if there is a delay in compensation disbursement after the resolution of dispute?
+												</button>
+											</h2>
+											<div id="collapseFourthTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+												<div class="accordion-body">
+													Complainants can access the dispute dashboard provided by CIBILto view the compensation details. If there is a delay in compensation disbursement from CIBIL, complainants can contact the CIBILcustomer support service to enquire further.
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<li id="general">
+									<div class="accordion" id="accordionExample5">
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifthOne" aria-expanded="true" aria-controls="collapseFifthOne">
+													How can I report inaccuracies in the calculation of compensation for delays in dispute resolution?
+												</button>
+											</h2>
+											<div id="collapseFifthOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample5">
+												<div class="accordion-body">
+													If you believe there are inaccuracies in the calculation of compensation, you can highlight this to us through our  <a href="www.cibil.com/contact">customer support</a> along with the Enquiry Control Number (ECN).
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifthTwo" aria-expanded="false" aria-controls="collapseFifthTwo">
+													Is the compensation amount bifurcated between the banks/financial institutions and CIBIL?
+												</button>
+											</h2>
+											<div id="collapseFifthTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
+												<div class="accordion-body">
+													Yes, the compensation amount is calculated between CI and CIC based on the delay each entity contributes to the overall resolution of the dispute or complaint. Refer to the details provided in the circular <a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__rbi.org.in_Scripts_NotificationUser.aspx-3FId-3D12554-26Mode-3D0&amp;d=DwMGaQ&amp;c=7gn0PlAmraV3zr-k385KhKAz9NTx0dwockj5vIsr5Sw&amp;r=G-zoSJpGELmrIbwlkX3Ycpq2tJVr_nyXshe5NQqBUGUhZCcGW-wCGr8m26_qKunY&amp;m=vopejg6B8SYha2KDbQhRd-XqA_gk7G3-AhdK3WeaSczuvyozvEzB-7_bmsIiM6Ma&amp;s=2GXUs7cQNLMsjjiDsTm7rH8Si43gIQwh0E-lubZopaw&amp;e=" class="link-style">here</a>.
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifthThree" aria-expanded="false" aria-controls="collapseFifthThree">
+													If a consumer raises a dispute against multiple CIs, which CI is liable to pay compensation, and how is it calculated?
+												</button>
+											</h2>
+											<div id="collapseFifthThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
+												<div class="accordion-body">
+													The liability for compensation is based on the delay caused by each CI. In this case the compensation is calculated at Rs. 100 per day on a weighted average basis, considering the extent of delay by each CI in relation to the overall delay. Consumers can view details of the delay caused in dispute resolution, by logging into their CIBILaccount. For the ease of reference the bifurcation of the amount to be payable by the CI’s and the CIC in case the complaint is resolved beyond a period of 30 calendar days is mentioned in detail in the said circular.
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifthFour" aria-expanded="false" aria-controls="collapseFifthFour">
+													What should a consumer do if the credit information dispute indicates money payable by the CI?
+												</button>
+											</h2>
+											<div id="collapseFifthFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
+												<div class="accordion-body">
+													Consumers should contact the CI for more information, quoting the assigned dispute ID. As per RBI guidelines, bank account details provided by the consumer during dispute initiation should be shared with CIs by CIBIL.
+												</div>
+											</div>
+										</div>
+
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifthFive" aria-expanded="false" aria-controls="collapseFifthFive">
+													Is there any compensation payable for a dispute closed within 30 days?
+												</button>
+											</h2>
+											<div id="collapseFifthFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
+												<div class="accordion-body">
+													No, compensation is applicable only when a dispute remains unresolved for more than 30 days. If a dispute is resolved within this timeframe, it is considered a timely resolution.
+												</div>
+											</div>
+										</div>
+
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifthSix" aria-expanded="false" aria-controls="collapseFifthSix">
+													How will consumers be notified if the dispute or complaint is rejected by banks/financial institution or CIBIL?
+												</button>
+											</h2>
+											<div id="collapseFifthSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
+												<div class="accordion-body">
+													If a dispute or complaint is rejected by the banks/financial institution or CIBIL, the complainant will receive a notification via the SMS and/or email address supplied when the dispute was lodged. Additionally, the dispute resolution dashboard has a comprehensive view of the resolution status and any updates related to the dispute or complaint. If there are further queries, or more clarification about the reasons for the rejection is required, CIBIL’s customer support team can help.
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+		</section>
+		<section class="track common-padding  text-center">
+			<div class="container" style="padding-right: 0 !important;padding-left: 0 !important;">
+				<p class="text-header mb-1">Track how your credit decisions impact your credit profile</p>
+				<p class="text-desc mb-24">Choose a CIBIL Subscription plan to unlock powerful tools that help build your credit
+					profile and protect you from any fraudulent activity.</p>
+
+				<div class="card-items mb-24   justify-content-center align-items-center ">
+					<label for="basic0" class="card gap-3">
+						<div class="header d-flex justify-content-between align-items-center ">
+							<p class="text-header mb-0 standard-width">Starter Plan</p>
+							<input type="radio" id="basic0" name="card-radio" value="basic" class='checkCard' onchange="setButtonLink('basic')">
+						</div>
+						<div class="monthly-rate d-flex justify-content-between align-items-center flex-wrap">
+							<p class="mb-0 color-grey"><span class="amt" style="font-size:14px;">₹118</span></p>
+							<p class="mb-0 monthly-pay ">Single Purchase</p>
+						</div>
+
+					</label>
+					<label for="basic" class="card gap-3">
+						<div class="header d-flex justify-content-between align-items-center ">
+							<p class="text-header mb-0 standard-width">Basic | 1 Month</p>
+							<input type="radio" id="basic" name="card-radio" value="basic" class="checkCard" onchange="setButtonLink('basic')">
+						</div>
+						<div class="monthly-rate d-flex justify-content-between align-items-center flex-wrap">
+							<p class="mb-0 text-start color-grey"><span class="amt" style="font-size:14px;">₹550</span></p>
+							<p class="popular mb-0 px-2">Most Popular</p>
+						</div>
+
+					</label>
+					<label for="standard" class="card gap-3">
+						<div class="header d-flex justify-content-between align-items-center">
+							<p class="text-header mb-0 standard-width">Standard | 6 Months</p>
+							<input type="radio" id="standard" name="card-radio" value="standard" onchange="setButtonLink('standard')">
+						</div>
+						<div class="monthly-rate d-flex justify-content-between align-items-center  flex-wrap">
+							<p class="mb-0 text-start color-grey"><span class="amt" style="font-size:14px;">₹800</span> (save 75%)</p>
+							<p class="mb-0 monthly-pay ">₹133/month</p>
+						</div>
+
+
+					</label>
+					<label for="premium" class="card gap-3">
+						<label class="header d-flex justify-content-between align-items-center">
+							<p class="text-header mb-0 standard-width">Premium | 12 Months</p>
+							<input type="radio" id="premium" name="card-radio" value="premium" onchange="setButtonLink('premium')">
+						</label>
+						<div class="monthly-rate d-flex justify-content-between align-items-center  flex-wrap">
+							<p class="mb-0 text-start color-grey"><span class="amt" style="font-size:14px;">₹1200</span> (save 81%)
+							</p>
+							<p class="mb-0 monthly-pay">₹100/month</p>
+						</div>
+
+
+					</label>
+
+
+				</div>
+				<button class="button-style text-capitalize "><a href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=1M550RM&_gl=1*1qefgic*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDA5NDAuNjAuMC4w&_ga=2.157054587.1554429793.1710140140-221050338.1702014368&_gac=1.20693578.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE" id="start-btn" class="link-style text-decoration-none">get Started Now</a></button>
+
+			</div>
+
+
+		</section>
+		<!-- <footer class="footer pb-5">
+			<div class="footer-container row">
+				<div class="footer__accordion-mobile d-block d-md-none mb-3" id="accordion">
+					<div class="accordion" id="accordionFooter">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAbout"
+									aria-expanded="true" aria-controls="collapseAbout">
+									About Us
+
+								</button>
+							</h2>
+							<div id="collapseAbout" class="accordion-collapse collapse show" data-bs-parent="#accordionFooter">
+								<div class="accordion-body">
+									<ul>
+										<li><a href="https://www.transunioncibil.com/about-us/about-transunion-cibil" target="_blank">About
+												TransUnion CIBIL</a></li>
+										<li><a class="cmp-list__item-link" href="https://www.transunioncibil.com/careers/careers"
+												target="_blank">
+												<span class="cmp-list__item-title">Careers</span>
+
+											</a></li>
+										<li><a href="https://www.transunioncibil.com/about-us/company-history" target="_blank">Company
+												History</a></li>
+										<li><a href="https://www.transunioncibil.com/contact-us" target="_blank">Support</a></li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">
+
+									Information
+								</button>
+							</h2>
+							<div id="collapseInfo" class="accordion-collapse collapse" data-bs-parent="#accordionFooter">
+								<div class="accordion-body">
+									<ul>
+										<li><a href="https://www.cibil.com/official-partners" target="_blank">Official Partners</a></li>
+										<li><a href="http://www.transunioncibil.com/suit-filed-cases/suit-filed-cases" target="_blank">Suit
+												Filed Cases</a></li>
+										<li><a href="https://www.transunioncibil.com/become-a-member/cersai" target="_blank">CERSAI</a></li>
+										<li><a href="https://www.cibil.com/external-links/rbi-notifications" target="_blank">RBI
+												Notifications</a></li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#collapseEdu" aria-expanded="false" aria-controls="collapseEdu">
+
+									Credit Education
+								</button>
+							</h2>
+							<div id="collapseEdu" class="accordion-collapse collapse" data-bs-parent="#accordionFooter">
+								<div class="accordion-body">
+									<ul>
+										<li><a href="https://www.cibil.com/blog/main" target="_blank">Blog</a></li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+				<div class="footer-accordian-desktop col-xl-7 d-md-flex border-xl-left border-0 d-none d-md-block mb-3">
+					<div class="footer__accordion-item col-4">
+						<div class="footer__accordion-button">
+							<div id="title-7ecd201260" class="cmp-title">
+								<h3 class="cmp-title__text">About Us</h3>
+							</div>
+
+
+
+						</div>
+						<div class="footer__accordion-collapse">
+							<ul id="list-87badad4f3" class="cmp-list">
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link"
+											href="https://www.transunioncibil.com/about-us/about-transunion-cibil">
+											<span class="cmp-list__item-title">About TransUnion CIBIL</span>
+
+										</a>
+
+									</article>
+								</li>
+
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link" href="https://www.transunioncibil.com/careers/careers"
+											target="_blank">
+											<span class="cmp-list__item-title">Careers</span>
+
+										</a>
+
+									</article>
+								</li>
+
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link" href="https://www.transunioncibil.com/about-us/company-history"
+											target="_blank">
+											<span class="cmp-list__item-title">Company History</span>
+
+										</a>
+
+									</article>
+								</li>
+
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link" href="https://www.transunioncibil.com/contact-us" target="_blank">
+											<span class="cmp-list__item-title">Support</span>
+
+										</a>
+
+									</article>
+								</li>
+							</ul>
+
+
+
+						</div>
+					</div>
+					<div class="footer__accordion-item col-4">
+						<div class="footer__accordion-button">
+							<div id="title-7ecd201260" class="cmp-title">
+								<h3 class="cmp-title__text">Information</h3>
+							</div>
+
+
+
+						</div>
+						<div class="footer__accordion-collapse">
+							<ul id="list-87badad4f3" class="cmp-list">
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link" href="https://www.cibil.com/official-partners" target="_blank">
+											<span class="cmp-list__item-title">Official Partners</span>
+
+										</a>
+
+									</article>
+								</li>
+
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link"
+											href="http://www.transunioncibil.com/suit-filed-cases/suit-filed-cases" target="_blank">
+											<span class="cmp-list__item-title">Suit Filed Cases</span>
+
+										</a>
+
+									</article>
+								</li>
+
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link" href="https://www.transunioncibil.com/become-a-member/cersai"
+											target="_blank">
+											<span class="cmp-list__item-title">CERSAI</span>
+
+										</a>
+
+									</article>
+								</li>
+
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link" href="https://www.cibil.com/external-links/rbi-notifications"
+											target="_blank">
+											<span class="cmp-list__item-title">RBI Notifications</span>
+
+										</a>
+
+									</article>
+								</li>
+							</ul>
+
+
+
+						</div>
+					</div>
+					<div class="footer__accordion-item col-4">
+						<div class="footer__accordion-button">
+							<div id="title-7ecd201260" class="cmp-title">
+								<h3 class="cmp-title__text">Information</h3>
+							</div>
+
+
+
+						</div>
+						<div class="footer__accordion-collapse">
+							<ul id="list-87badad4f3" class="cmp-list">
+								<li class="cmp-list__item">
+									<article>
+										<a class="cmp-list__item-link" href="https://www.cibil.com/blog/main" target="_blank">
+											<span class="cmp-list__item-title">Blog</span>
+
+										</a>
+
+									</article>
+								</li>
+
+
+							</ul>
+
+
+
+						</div>
+					</div>
+
+				</div>
+				<div id="footerRight" class="col-xl-4 footer__right">
+					<div class="row">
+						<div class="col-md-6 col-xl-12">
+							<div class="footer__questions">
+								<div class="cmp-text__paragraph">
+									<div id="text-2dab64641d" class="cmp-text ">
+										<p class="text-center text-xl-center text-md-start">Have questions?</p>
+									</div>
+								</div>
+							</div>
+							<div class="footer__buttons mb-2">
+								<div
+									class="aem-Grid aem-Grid--12 aem-Grid--default--12 d-flex justify-content-center justify-content-xl-center justify-content-md-start">
+									<div class="linkcalltoaction aem-GridColumn aem-GridColumn--default--12 button-style"><a
+											href="/contact-us" title="Contact Us" class="cmp-linkcalltoaction ">
+											Contact Us
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="footer__social-icons">
+								<ul
+									class="cmp-genericlist d-flex  justify-content-center justify-content-xl-center gap-2 ps-0 justify-content-md-start"
+									itemtype="https://schema.org/Organization" itemscope="">
+
+									<li class="cmp-genericlist__item " data-cmp-hook-genericlist="item">
+										<div>
+											<div class="socialicon icon">
+												<div class="cmp-icon">
+													<a itemprop="sameAs" class="cmp-icon__link"
+														href="https://www.facebook.com/CIBIL-329225453912063/" title="Facebook" target="_blank">
+														<div class="cmp-icon__container">
+															<img class="icon cmp-icon__image" src="https://www.cibil.com/content/dam/cibil/consumer/compensation/facebook.svg" alt="Facebook">
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="cmp-genericlist__item" data-cmp-hook-genericlist="item">
+										<div>
+											<div class="socialicon icon">
+												<div class="cmp-icon">
+													<a itemprop="sameAs" class="cmp-icon__link" href="https://twitter.com/CIBIL_Official"
+														title="Ttwitter" target="_blank">
+														<div class="cmp-icon__container">
+															<img class="icon cmp-icon__image" src="https://www.cibil.com/content/dam/cibil/consumer/compensation/twitter.svg" alt="Ttwitter">
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="cmp-genericlist__item" data-cmp-hook-genericlist="item">
+										<div>
+											<div class="socialicon icon">
+												<div class="cmp-icon">
+													<a itemprop="sameAs" class="cmp-icon__link" href="https://www.youtube.com/user/CIBILonline"
+														title="Youtube" target="_blank">
+														<div class="cmp-icon__container">
+															<img class="icon cmp-icon__image" src="https://www.cibil.com/content/dam/cibil/consumer/compensation/youtube.svg" alt="Youtube">
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="cmp-genericlist__item" data-cmp-hook-genericlist="item">
+										<div>
+											<div class="socialicon icon">
+												<div class="cmp-icon">
+													<a itemprop="sameAs" class="cmp-icon__link"
+														href="https://www.linkedin.com/company/credit-information-bureau-india-limited"
+														title="Linkedin" target="_blank">
+														<div class="cmp-icon__container">
+															<img class="icon cmp-icon__image" src="https://www.cibil.com/content/dam/cibil/consumer/compensation/linkedIn.svg" alt="Linkedin">
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__logo m-auto m-xl-auto m-md-0">
+								<div id="image-4888959a25" class="cmp-image" itemscope="" itemtype="http://schema.org/ImageObject">
+									<img src="https://www.cibil.com/content/dam/cibil/consumer/compensation/tu_logo.svg" loading="lazy" class="cmp-image__image" itemprop="contentUrl"
+										alt="ifg-lockup-yellow-grey_707070_OL" title="ifg-lockup-yellow-grey_707070_OL">
+									<meta itemprop="caption" content="ifg-lockup-yellow-grey_707070_OL">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-xl-12 footer__cnt-terms ">
+							<div class="footer__terms d-xl-none mt-4">
+								<ul id="list-7b5a30e885"
+									class="cmp-list d-flex justify-content-center justify-content-xl-start justify-content-md-end gap-2 ps-0 mb-0">
+									<li class="cmp-list__item">
+										<article>
+											<a class="cmp-list__item-link" href="https://www.transunioncibil.com/legal/privacy-policy">
+												<span class="cmp-list__item-title">Privacy Policy</span>
+											</a>
+										</article>
+									</li>
+									<li class="cmp-list__item">
+										<article>
+											<a class="cmp-list__item-link" href="https://www.transunioncibil.com/legal/terms-and-conditions">
+												<span class="cmp-list__item-title">Terms of Use</span>
+											</a>
+										</article>
+									</li>
+									<li class="cmp-list__item">
+										<article>
+											<a class="cmp-list__item-link" href="/sitemap">
+												<span class="cmp-list__item-title">Sitemap</span>
+											</a>
+										</article>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__copyright mt-1">
+								<div class="cmp-text__paragraph">
+									<div id="text-9cbcd7ea78" class="cmp-text text-center">
+										<p>© Copyright 2023 CIBILLimited (Formerly: Credit Information Bureau (India) Limited).
+											All Rights Reserved.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="d-none d-xl-block col-xl-12 footer__cnt-terms">
+					<div class="footer__terms">
+
+						<ul id="list-7b5a30e885" class="cmp-list d-flex justify-content-end justify-content-xl-start gap-2 ps-0">
+							<li class="cmp-list__item">
+								<article>
+									<a class="cmp-list__item-link" href="https://www.transunioncibil.com/legal/privacy-policy">
+										<span class="cmp-list__item-title">Privacy Policy</span>
+
+									</a>
+
+								</article>
+							</li>
+
+							<li class="cmp-list__item">
+								<article>
+									<a class="cmp-list__item-link" href="https://www.transunioncibil.com/legal/terms-and-conditions">
+										<span class="cmp-list__item-title">Terms of Use</span>
+
+									</a>
+
+								</article>
+							</li>
+
+							<li class="cmp-list__item">
+								<article>
+									<a class="cmp-list__item-link" href="/sitemap">
+										<span class="cmp-list__item-title">Sitemap</span>
+
+									</a>
+
+								</article>
+							</li>
+						</ul>
+
+
+
+
+					</div>
+				</div>
+			</div>
+
+
+		</footer> -->
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			const btn = document.getElementById('start-btn');
+
+			const linkMap = {
+				basic: 'https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=1M550RM&_gl=1*1qefgic*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDA5NDAuNjAuMC4w&_ga=2.157054587.1554429793.1710140140-221050338.1702014368&_gac=1.20693578.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE',
+				standard: 'https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=6M800RM&_gl=1*pn9d65*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDExMjIuNTcuMC4w&_ga=2.127816269.1554429793.1710140140-221050338.1702014368&_gac=1.82079076.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE',
+				premium: 'https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=1Y1200RM&_gl=1*p8saxz*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDExNjAuMTkuMC4w&_ga=2.127816269.1554429793.1710140140-221050338.1702014368&_gac=1.82079076.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE'
+
+
+			}
+			function setButtonLink(value) {
+				let valuePresent = !!value;
+				// event.preventDefault();
+				console.log("Called");
+				// Reset border for all .card elements
+				document.querySelectorAll('.card').forEach(function (card, i) {
+					const checkBox = card.children[0].children[1];
+					console.log(checkBox);
+					if (i == 1 && !valuePresent) {
+						checkBox.checked = true;
+					}
+					if (checkBox.checked) {
+						console.log("this is check", checkBox);
+						card.style.border = '1px solid #005365CC';
+					}
+					else
+						card.style.border = '1px solid transparent';
+
+				});
+				// var radioEle = card.querySelector('input[name="card-radio"]');
+				// var cardValue;
+				// if (radioEle) {
+				// 	radioEle.checked = true;
+				// 	cardValue = radioEle.value;
+				// }
+				// console.log(cardValue);
+				// card.style.border = '1px solid #005365CC';
+
+
+
+				btn.setAttribute('href', linkMap[value] || linkMap['basic']);
+				btn.setAttribute('target', '_blank');
+
+			}
+		</script>
+
+		<script src="https://www.cibil.com/content/dam/cibil/consumer/compensation/bootstrap.bundle.min.js"></script>
+		<script src="https://www.cibil.com/content/dam/cibil/consumer/compensation/common.js"></script>
+
+	</body>
+
+</html>
