@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+		<link rel="stylesheet" href="https://www.cibil.com/content/dam/cibil/consumer/home/bootstrap.css">
+
+	<style>
+		@charset "UTF-8";
+
+		@font-face {
+			font-family: Intro Bold;
+			src: url("../font/Intro-Bold.eot");
+			src: local("☺"), url("../fonts/Intro-Bold.woff") format("woff"), url("../fonts/Intro-Bold.ttf") format("truetype"), url("../fonts/Intro-Bold.svg") format("svg");
+			font-weight: bold;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: Intro Book;
+			src: url("../fonts/Intro-Book.eot");
+			src: local("☺"), url("../fonts/Intro-Book.woff") format("woff"), url("../fonts/Intro-Book.ttf") format("truetype"), url("../fonts/Intro-Book.svg") format("svg");
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: "Intro-Light";
+			src: url("../fonts/Intro-Light.eot");
+			src: local("☺"), url("../fonts/Intro-Light.woff") format("woff"), url("../fonts/Intro-Light.ttf") format("truetype"), url("../fonts/Intro-Light.svg") format("svg");
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: Intro Regular;
+			src: url("../fonts/Intro-Regular.eot");
+			src: local("☺"), url("../fonts/Intro-Regular.woff") format("woff"), url("../fonts/Intro-Regular.ttf") format("truetype"), url("../fonts/Intro-Regular.svg") format("svg");
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		/* .enquiry {
+  background-color: #e6f6fa;
+  padding: 90px 5rem;
+}
+.enquiry .header {
+  font-family: Intro Book;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: center;
+} */
+		/* .enquiry .card {
+  padding: 1rem;
+  border-radius: 16px;
+  
+}
+.enquiry .card .monthly-rate p{
+	width: fit-content;
+}
+.enquiry .card .text-header {
+  font-family: Intro Book;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.enquiry .card .popular {
+  padding: 2px;
+  background-color: #e6f6fa;
+  border-radius: 8px;
+  color: #00a6ca;
+}
+.enquiry button {
+  width: min(100%, 600px);
+} */
+		.common-padding {
+			padding: 60px 120px;
+		}
+
+
+		.text-header {
+			font-size: 28px;
+			font-weight: 700;
+			line-height: 26px;
+			font-family: Intro Bold;
+		}
+
+		.text-desc {
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 28px;
+			color: #000000;
+		}
+
+		.amt {
+			font-weight: 700;
+			font-family: Intro Book;
+			color: #000000;
+			
+		}
+
+		.mb-24{
+			margin-bottom: 24px !important;
+		}
+
+		.color-grey{
+			color:#595959;
+		}
+
+		.standard-width {
+			width: 250px;
+		}
+
+		.link-style {
+			text-decoration: none;
+			color: #000000;
+
+		}
+
+		.monthly-pay {
+			color: #595959;
+			/* font-weight: 500; */
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 24px;
+			text-align: left;
+
+		}
+
+		.gap-3 {
+			gap: 1rem;
+		}
+
+		a:hover {
+			color: #000000;
+		}
+
+		body .track {
+			background-color: #e6f6fa;
+
+		}
+
+		body .track .card {
+
+			padding: 1rem;
+			box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.0588235294);
+			border-radius: 16px;
+		}
+
+		body .track .card:first-child {
+			border: 1px solid #005365CC;
+		}
+
+		body .track .card .header .text-header {
+			font-size: 20px;
+			font-weight: bold;
+			line-height: 28px;
+			text-align: center;
+
+			text-align: left;
+		}
+
+		body .track .card .monthly-rate .popular {
+			padding: 2px;
+			background-color: #e6f6fa;
+			border-radius: 8px;
+			color: #00a6ca;
+		}
+
+		body .track .card .monthly-pay p {
+			color: green;
+			width: fit-content !important;
+		}
+
+		.button-style {
+			background-color: #fcd800;
+			padding: 1rem;
+			outline: none;
+			border: none;
+			border-radius: 50px;
+			font-weight: 600;
+			font-size: 16px;
+			color: #000000;
+			/* min-width: 200px; */
+			font-family: Intro Book;
+			height: fit-content;
+			align-self: center;
+			width: 171px;
+		}
+
+		.track-desc {
+			font-family: Intro Book;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 27px;
+			letter-spacing: 0em;
+			text-align: center;
+
+
+		}
+
+		.track-desc a {
+			color: #005365;
+			font-weight: 500;
+			font-family: Intro Book;
+		}
+
+		.card input[type='radio']{
+			appearance: none;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			outline: 1px solid #9D9D9D;
+			outline-offset: 3px;
+		}
+		
+
+		.card input[type='radio']:checked {
+			background-color: #00a6ca;
+		}
+
+		.card {
+			justify-content: space-between !important;
+			border: 1px solid #fff;
+			min-width: 288px;
+			padding: 20px 24px !important;
+			cursor: pointer;
+			
+		}
+
+
+		.card .monthly-rate p {
+
+			width: fit-content;
+		}
+
+		@media screen and (width<1440px) {
+			.track .card {
+				width: 500px !important;
+			}
+		}
+
+		@media screen and (width<768px) {
+			.common-padding {
+				padding: 5px 20px !important;
+			}
+
+			.track .card {
+				min-width: 100% !important;
+				width: 100% !important;
+			}
+			.card input[type='radio']{
+			appearance: none;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			outline: 1px solid #9D9D9D;
+			outline-offset: 3px;
+		}
+		.standard-width{
+			width: 200px !important;
+		}
+		}
+	</style>
+</head>
+
+<body>
+	<section class="track common-padding  text-center">
+		<div class="container">
+			<p class="text-header mb-1">Already availed your annual Free CIBIL Score & Report?</p>
+			<p class="text-desc mb-24">Subscribe now and continue to monitor your credit profile and always stay credit-ready!</p>
+
+			<div class="card-items d-flex gap-3   flex-xl-row flex-column  mb-24   justify-content-center align-items-center ">
+				<div class="card gap-3" onclick="setButtonLink(this)">
+					<div class="header d-flex justify-content-between align-items-center ">
+						<p class="text-header mb-0 standard-width">Starter Plan</p>
+						<input type="radio" name="card-radio" checked value="basic" class="checkCard">
+					</div>
+					<div class="monthly-rate d-flex justify-content-between align-items-center flex-wrap">
+						<p class="mb-0"><span class="amt">₹118</span></p>
+						<p class="mb-0 monthly-pay ">Single Purchase</p>
+					</div>
+
+				</div>
+				<div class="card gap-3" onclick="setButtonLink(this)">
+					<div class="header d-flex justify-content-between align-items-center ">
+						<p class="text-header mb-0 standard-width">Basic | 1 Month</p>
+						<input type="radio" name="card-radio" value="basic" class="checkCard">
+					</div>
+					<div class="monthly-rate d-flex justify-content-between align-items-center flex-wrap">
+						<p class="mb-0 text-start color-grey"><span class="amt">₹550</span></p>
+						<p class="popular mb-0 px-2">Most Popular</p>
+					</div>
+
+				</div>
+				<div class="card gap-3" onclick="setButtonLink(this)">
+					<div class="header d-flex justify-content-between align-items-center">
+						<p class="text-header mb-0 standard-width">Standard | 6 Months</p>
+						<input type="radio" name="card-radio" value="standard">
+					</div>
+					<div class="monthly-rate d-flex justify-content-between align-items-center  flex-wrap">
+						<p class="mb-0 text-start color-grey"><span class="amt">₹800</span> (save 75%)</p>
+						<p class="mb-0 monthly-pay ">₹133/month</p>
+					</div>
+
+
+				</div>
+				<div class="card gap-3" onclick="setButtonLink(this)">
+					<div class="header d-flex justify-content-between align-items-center">
+						<p class="text-header mb-0 standard-width">Premium | 12 Months</p>
+						<input type="radio" name="card-radio" value="premium">
+					</div>
+					<div class="monthly-rate d-flex justify-content-between align-items-center  flex-wrap">
+						<p class="mb-0 text-start color-grey"><span class="amt">₹1200</span> (save 81%)</p>
+						<p class="mb-0 monthly-pay">₹100/month</p>
+					</div>
+
+
+				</div>
+
+
+			</div>
+			<button class="button-style text-capitalize "><a
+					href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=1M550RM&_gl=1*1qefgic*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDA5NDAuNjAuMC4w&_ga=2.157054587.1554429793.1710140140-221050338.1702014368&_gac=1.20693578.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE"
+					id="start-btn" class="link-style text-decoration-none">get Started Now</a></button>
+			
+		</div>
+
+
+	</section>
+	<script>
+		const btn = document.getElementById('start-btn');
+		function setButtonLink(card) {
+			// Reset border for all .card elements
+			document.querySelectorAll('.card').forEach(function (card) {
+				card.style.border = '1px solid white';
+			});
+			var radioEle = card.querySelector('input[name="card-radio"]');
+			var cardValue;
+			if (radioEle) {
+				radioEle.checked = true;
+				cardValue = radioEle.value;
+			}
+
+			card.style.border = '1px solid #005365CC';
+			let link = 'https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=1M550RM&_gl=1*1qefgic*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDA5NDAuNjAuMC4w&_ga=2.157054587.1554429793.1710140140-221050338.1702014368&_gac=1.20693578.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE';
+			if (cardValue === 'basic') {
+				link = 'https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=1M550RM&_gl=1*1qefgic*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDA5NDAuNjAuMC4w&_ga=2.157054587.1554429793.1710140140-221050338.1702014368&_gac=1.20693578.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE';
+
+			}
+
+			if (cardValue === 'standard') link = 'https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=6M800RM&_gl=1*pn9d65*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDExMjIuNTcuMC4w&_ga=2.127816269.1554429793.1710140140-221050338.1702014368&_gac=1.82079076.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE';
+
+			if (cardValue === 'premium') link = 'https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=1Y1200RM&_gl=1*p8saxz*_ga*MjIxMDUwMzM4LjE3MDIwMTQzNjg.*_ga_GGL6JJ79K2*MTcxMDE0MDE0MC42MC4xLjE3MTAxNDExNjAuMTkuMC4w&_ga=2.127816269.1554429793.1710140140-221050338.1702014368&_gac=1.82079076.1709186772.CjwKCAiA0PuuBhBsEiwAS7fsNfsKkwLtOUjjkvKJWfzkwB-QdgZQO4Ii1AMP0WE8IsNWdM1EjNi1xhoClIwQAvD_BwE';
+
+
+			btn.setAttribute('href', link);
+
+		}
+	</script>
+</body>
+
+</html>
