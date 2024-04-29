@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DRS2</title>
+	<!-- <link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+	<style>
+		* {
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Roboto Regular",roboto,sans-serif, system-ui !important ;
+			line-height: 24px;
+		}
+
+		@font-face {
+			font-family: "Intro";
+			src: url("../font/IntroRegular.ttf") format("truetype"),
+				url("../font/IntroSemiBold.ttf") format("truetype");
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: "Intro";
+			src: url("../font/Fontfabric - Intro-Bold.otf") format("truetype");
+			font-weight: bold;
+		}
+
+		@font-face {
+			font-family: "Intro Semi Bold";
+			src: url("../font/IntroSemiBold.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Roboto Bold";
+			src: url("../font/Roboto-Bold.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Roboto light";
+			src: url("../font/Roboto-Light.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Roboto Medium";
+			src: url("../font/Roboto-Medium.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Roboto Regular";
+			src: url("../font/Roboto-Regular.ttf") format("truetype");
+		}
+		p{
+			margin-top: 0;
+			font-size: 16px;
+			color: #000;
+		}
+		td,th{
+			font-size: 16px;
+			color: #000;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+		.mb-24 {
+			margin-bottom: 24px;
+		}
+
+		.mb-40 {
+			margin-bottom: 40px;
+		}
+
+		.mb-32 {
+			margin-bottom: 32px;
+		}
+
+		.p-padding {
+			padding-bottom: 1rem;
+		}
+
+		.pb-24 {
+			padding-bottom: 24px;
+		}
+
+		.p-inline-24 {
+			padding-left: 24px;
+			padding-right: 24px;
+
+		}
+
+		.p-inline-16 {
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+
+		.common-padding {
+			padding: 40px 24px;
+		}
+
+		.button-style {
+
+			padding: 10px 24px;
+			border-radius: 30px;
+			background: #fcd800;
+			border: none;
+			color: #2c2c2c;
+
+			text-align: center;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 130%;
+			text-transform: uppercase;
+
+		}
+
+		.color-grey {
+			color: #595959;
+
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table td {
+			width: fit-content;
+		}
+
+		body .email-container {
+
+			min-width: 600px;
+			max-width: 600px;
+		}
+
+
+
+		.otp-container {
+			/* height: 55px; */
+			background-color: #ffffff;
+			text-align: center;
+			border-radius: 8px;
+			letter-spacing: 20px;
+			font-weight: 700;
+
+		}
+
+		.otp-container p {
+			/* line-height: 55px; */
+
+		}
+
+		.mr-24 {
+			margin-right: 24px;
+		}
+
+		.text-black {
+			color: #000;
+		}
+
+		ul li {
+			color: #004364;
+			font-feature-settings: 'ss01' on;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 24px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<table class="email-container" align="center">
+
+		<!----------------------------------- Header Logo  ------------------------------------------------>
+		<thead class="header-container">
+			<tr>
+				<th class="text-left" colspan="3" style="line-height: 0;padding-bottom: 24px;">
+					<img src="https://res.cloudinary.com/dyuh0eflt/image/upload/v1712723599/CIBIL/email_header.png" alt="">
+				</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<!------------------------------------------------------------------------------------->
+																				<!-- Nav Bar -->
+			<!------------------------------------------------------------------------------------->
+			<tr>
+				<td class="pb-24">
+					<table>
+						<tbody>
+							<tr>
+								<td class="p-inline-16" style="border-right: 0.4px solid #707070;padding-left: 24px;">
+									<a href="https://myscore.cibil.com/CreditView/creditreport.page?enterprise=CIBIL" class="links"
+										style="color:#2C2C2C;text-decoration:underline;">Dispute Center</a>
+								</td>
+								<td class="p-inline-16" style="border-right: 0.4px solid #707070;">
+									<a href="https://www.cibil.com/nodal-officer-list" class="links"
+										style="color:#2C2C2C;text-decoration:underline;">Nodal Officer</a>
+								</td>
+								<td class="p-inline-16" >
+									<a href="https://www.cibil.com/" class="links"
+										style="color:#2C2C2C;text-decoration:underline;">CIBIL.com</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</td>
+			</tr>
+
+			<!--------------------------------------------------------------------------------->
+																		<!-- Email Body -->
+			<!--------------------------------------------------------------------------------->
+			<tr style="background: #E6F6FA;">
+
+				<td class="p-inline-24 mb-40">
+					<table>
+						<tbody>
+							<tr>
+								<td style="padding-bottom: 32px;"></td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 20px;">
+									<p class="p-padding text-black " style="margin-top: 0;">Dear Trisha, </p>
+									<p class="text-black">We wish to inform you that resolution of <span>CDS28122023000861</span>
+										submitted on <span>01-Dec-2023</span> is delayed.</p>
+									<p>In adherence to RBI guidelines, the resolution of your dispute or complaint is required to be
+										completed within 30 days from date of receipt of the dispute either by the banks/financial
+										institution and / or by TU CIBIL. Failure of either the bank/financial Institutions and / or TU
+										CIBIL entitles you to receive a compensation of ₹100/- for each day of delay from the bank/financial
+										Institutions and/ or TU CIBIL (as applicable), shall be credited to the provided account details.
+									</p>
+									<p>Kindly provide your account information to avail compensation post the closure of your dispute.
+										This compensation framework becomes effective from April 26, 2024.</p>
+									<p class="mb-0">Kindly provide your account information to avail compensation post the closure of your
+										dispute.</p>
+
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 40px;">
+
+									<a href="
+									">
+									<button
+											style="background-color: #fcd800;font-weight: bold;padding: 10px 24px;border-radius: 30px;border: none;outline: none;font-size: 16px;">Add
+											Account Information</button>
+								</a>
+								</td>
+							</tr>
+
+							<!----------------------------------------------------------------------------->
+																			<!-- Email Important Note -->
+							<!----------------------------------------------------------------------------->
+							<tr>
+								<td style="padding-right: 24px;padding-bottom: 40px;">
+									<table style="background-color: #fff;width: 100%;">
+
+										<tbody style="width: 100%;">
+											<tr >
+												<td style="padding-bottom: 20px;"></td>
+											</tr>
+											<tr>
+												<th>
+													<table style="text-align: left;">
+														<tbody style="padding: 24px;">
+															<tr align="left">
+																<td style="padding-right: 12px;padding-left: 24px;height: 40px;">
+																	<table>
+																		<tbody>
+																			<tr>
+																				<td style="padding-right: 12px;">
+																					<img
+																						src="https://res.cloudinary.com/dyuh0eflt/image/upload/v1712723599/CIBIL/important-info.svg.png"
+																						alt="" style="vertical-align: middle;">
+																				</td>
+																				<td style="color: #004364;
+																				font-size: 14px;
+																				font-style: normal;
+																				font-weight: 700;
+																				
+																				letter-spacing: 0.14px;
+																				">
+																					Important Note
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+															<tr >
+																<td style="padding-bottom: 12px;"></td>
+															</tr>
+															<tr>
+																<td colspan="2" style="padding-right: 24px;padding-bottom: 16px;">
+																	<ul style="padding-left: 48px;margin-bottom: 0;">
+																		<li class="bullet-point">
+																			Disputes initiated prior to April 26, 2024 and subsequently closed will not fall under the provisions of this circular, and therefore, compensation will not be applicable.</li>
+																		<li class="bullet-point">As per RBI guidelines, the onus of providing accurate details will lie with the complainant and the banks/financial institution and or TU CIBIL will not be held responsible for any incorrect information provided by the complainant.</li>
+																		<li class="bullet-point">Kindly note that compensation is applicable solely to domestic or local accounts and is not valid for NRI accounts.</li>
+										
+																	</ul>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</th>
+											</tr>
+
+										</tbody>
+									</table>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<!------------------------------------------------------------------------->
+																		<!-- Email Signature  -->
+					<!------------------------------------------------------------------------->
+					<table>
+						<tbody>
+							<tr>
+								<td
+									style="font-weight: 400;font-size: 14px;line-height: 24px;letter-spacing: 0.02em;color: #707070;padding-bottom: 10px;">
+									Always at your service!</td>
+							</tr>
+							<tr>
+								<td style="font-weight: 400;font-size: 14px;line-height: 24px;letter-spacing: 0.02em;color: #2C2C2C;">
+									Regards,<br>Consumer Services Team</td>
+							</tr>
+							<tr>
+								<td style="font-weight: 400;font-size: 14px;line-height: 24px;color: #595959;">
+									<p class="mb-32" style="margin-top: 0;color: #595959;font-size: 14px;">TransUnion CIBIL Limited, Formerly known as Credit Information
+										Bureau (India) Limited</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+
+		</tbody>
+
+		<!-------------------------------------------------------------------------->
+		<!-- Email Footer -->
+		<!-------------------------------------------------------------------------->
+		<tfoot>
+			<tr>
+				<td style="padding-left: 24px;padding-right: 24px;">
+					<table style="width: 100%;text-align: center;">
+						<tr>
+							<td style="padding-bottom: 24px;"></td>
+						</tr>
+						<tbody>
+							<tr>
+								<td style="padding-bottom: 24px;">
+
+								</td>
+							</tr>
+							<tr>
+								<td align="center" style="padding-bottom: 12px;color: #004364;">
+									Follow us on
+								</td>
+							</tr>
+							<tr>
+								<td align="center" style="padding-bottom: 40px;">
+									<table>
+										<tbody>
+											<tr>
+												<td style="padding-right: 24px;">
+													<a href="https://www.facebook.com/TransUnionCIBIL/"><img
+															src="https://www.cibil.com/content/dam/cibil/icons/facebook-icon.jpg" width="30"
+															class=""></a>
+												</td>
+												<td style="padding-right: 24px;">
+													<a href="https://www.linkedin.com/company/credit-information-bureau-india-limited"><img
+															src="https://www.cibil.com/content/dam/cibil/icons/linkedin-icon.jpg" width="30"
+															class=""></a>
+												</td>
+												<td>
+													<a href="https://www.youtube.com/user/CIBILonline"><img
+															src="https://www.cibil.com/content/dam/cibil/icons/youtube-icon.jpg" width="30"></a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+
+								</td>
+
+							</tr>
+							<tr>
+								<td style="font-weight: 700;color: #004364;padding-bottom: 12px;font-size: 14px;">
+									Get the CIBIL App
+								</td>
+							</tr>
+							<tr >
+								<td style="padding-bottom: 12px;" align="center">
+									<p style="width: 250px;margin: 0;font-weight: 400;color: #004364;">Access your CIBIL Score & Report anytime, anywhere.</p>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 40px;">
+									<a href="" style="text-decoration: none;">
+										<img src="https://res.cloudinary.com/dyuh0eflt/image/upload/v1712723599/CIBIL/google-play-badge.png"
+											alt="" width="140" height="40">
+									</a>
+									<a href="" style="text-decoration: none;">
+										<img src="https://res.cloudinary.com/dyuh0eflt/image/upload/v1712723599/CIBIL/appstore.png" alt=""
+											width="140" height="40">
+
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: #004364;font-size: 14px;font-style: normal;font-weight: 600;padding-bottom: 12px;">
+									TransUnion CIBIL Limited
+								</td>
+							</tr>
+							<tr>
+								<td style="color: #004364;font-size: 14px;font-style: normal;font-weight: 500;padding-bottom: 16px;">
+									Registered Office: One World Center, Tower 2, 19th Floor, Senapati Bapat Marg, Elphinstone Road,
+									Mumbai -400013
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+
+</html>

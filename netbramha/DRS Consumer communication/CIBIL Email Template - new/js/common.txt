@@ -1,0 +1,35 @@
+document.addEventListener("DOMContentLoaded", function () {
+  
+  // Get the element containing the number
+  let accNumberElement = document.getElementById("acc-no");
+  let phoneNumber = document.getElementById('phone-no');
+
+  if (phoneNumber) {
+    let rawPhoneNumber = phoneNumber.textContent;
+    const countryCode = rawPhoneNumber.substring(0, 3);
+    const lastFourDigits = rawPhoneNumber.substring( rawPhoneNumber.length - 4);
+    console.log(lastFourDigits);
+  
+  // Creating the masked phone number with asterisks in the middle
+    const maskedPhoneNumber = `${countryCode} ******${lastFourDigits}`;
+    console.log(maskedPhoneNumber);
+    phoneNumber.textContent = maskedPhoneNumber;
+  }
+  if (accNumberElement) {
+     // Get the raw number
+  let rawNumber = accNumberElement.textContent;
+
+  // Format the number as "**** *** *0019"
+  let formattedNumber = "**** *** *" + rawNumber.slice(-4);
+
+  // Set the formatted number back to the element
+  accNumberElement.textContent = formattedNumber;
+  }
+
+ 
+
+  
+
+
+  
+})
