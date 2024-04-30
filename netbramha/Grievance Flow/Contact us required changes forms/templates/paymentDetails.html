@@ -1,0 +1,444 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>CIBIL (CONTACT-US)</title>
+
+<link th:href="@{/img/favicon.ico}" rel="shortcut icon" />
+<link rel="stylesheet" type="text/css" href="../static/css/ssp.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/consent-checkbox.css}">
+<link rel="stylesheet" type="text/css" href="../static/css/common.css">
+<link rel="stylesheet" type="text/css" href="../static/css/form-basic.css">
+
+<script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/general.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/form4.js}"></script>
+
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+<script type="text/javascript" th:src="@{/js/common_consumer_util.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/flatpickr.min.css}">
+
+<script type="text/javascript" th:src="@{/js/flatpickr.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<style>
+	.modal.show{
+		backdrop-filter: blur(1px);
+		/* background-color:; */
+	}
+</style>
+</head>
+
+<body>
+	<div class="wrapper anim">
+		<div class="header">
+			<div class="logo">
+				<img th:src="@{/img/logo.png}" title="" alt="CIBIL - Empowering You"
+					aria-describedby="ui-id-6">
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="container">
+			<div class="lastStepContent">
+				<div class="stepFlow">
+					<div class="breadcrum">
+						<span class="level_1A" style="font-size: 16px; font-weight: bold;"
+							th:text="${level1}"></span> <span class="level_2A"
+							style="font-size: 16px; font-weight: bold;" th:text="${level2}"></span>
+
+					</div>
+				</div>
+
+				<div class="form_box gray_gradiant">
+
+					<div class=" d-flex flex-column gap-3">
+						<span class="required_icon ml-md-auto mb-3 mb-md-0 ml-auto"><b>All fields marked with (*) are
+								mandatory</b></span>
+					</div>
+					<br>
+					
+					<div class="alert alert-danger" id="settimeout" style="display:none"></span>
+
+						<span id="errorIdType"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorIdNumber"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+						<span id="errorHolderName"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorIfsc"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorAccountNo"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorConfirmAcc"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorAddress"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorBankType"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorBankname"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+						<span id="errorCheckbox"
+							style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+
+					</div>
+					
+					<div class="alert alert-danger" id="settimeout" th:if="${errorMessageList}" style="display: none;">
+						<ul>
+							<li style="list-style:none;" th:each="err : ${errorMessageList}" th:text="${err}"
+								class="error"></li>
+						</ul>
+					</div>
+					<h1 class="form-head">Update Your Payment Details</h1>
+					<br>
+					
+					<p class="sub_para">Help us address your complaint promptly by providing the following details to compensate for
+						potential delays.</p>
+
+
+					<div
+						class="warn-msg p-3  border d-flex gap-4 flex-column flex-md-row  "
+						style="color: #004364;gap: 1rem;">
+						<div>
+							<svg xmlns="http://www.w3.org/2000/svg" width="68" height="68"
+								viewBox="0 0 40 40" fill="none">
+								<g clip-path="url(#clip0_355_6367)">
+									<path
+									d="M20 40C31.0457 40 40 31.0457 40 20C40 8.95431 31.0457 0 20 0C8.95431 0 0 8.95431 0 20C0 31.0457 8.95431 40 20 40Z"
+									fill="white" />
+									<path
+									d="M16.884 26.6664H23.1146M20 7.99976V9.33312M28.4854 11.5144L27.5426 12.4571M32 19.9998H30.6666M9.33336 19.9998H8M12.4574 12.4571L11.5146 11.5144M15.2854 24.7144C14.3531 23.782 13.7184 22.5941 13.4613 21.301C13.2042 20.0078 13.3363 18.6674 13.841 17.4494C14.3456 16.2313 15.2001 15.1902 16.2964 14.4578C17.3926 13.7253 18.6815 13.3343 20 13.3343C21.3185 13.3343 22.6074 13.7253 23.7036 14.4578C24.7999 15.1902 25.6544 16.2313 26.159 17.4494C26.6637 18.6674 26.7958 20.0078 26.5387 21.301C26.2816 22.5941 25.6469 23.782 24.7146 24.7144L23.984 25.4438C23.5662 25.8615 23.235 26.3575 23.0089 26.9034C22.7829 27.4493 22.6666 28.0343 22.6666 28.6251V29.3331C22.6666 30.0403 22.3857 30.7186 21.8856 31.2187C21.3855 31.7188 20.7073 31.9998 20 31.9998C19.2927 31.9998 18.6145 31.7188 18.1144 31.2187C17.6143 30.7186 17.3334 30.0403 17.3334 29.3331V28.6251C17.3334 27.4318 16.8586 26.2864 16.016 25.4438L15.2854 24.7144Z"
+									stroke="#006685" stroke-width="1.6" stroke-linecap="round"
+									stroke-linejoin="round" />
+								</g>
+								<defs>
+									<clipPath id="clip0_355_6367">
+										<rect width="40" height="40" fill="white" />
+									</clipPath>
+								</defs>
+							</svg>
+						</div>
+
+						<div>
+							<h3 class="mb-3">Why is this important?</h3>
+							<ul class="ml-5 mb-0 " style="word-break: break-all;">
+								<li style="list-style: disc;">In adherence to RBI guidelines, the resolution of your dispute or complaint is required to be completed within 30 days from date of receipt of the dispute either by the banks/financial institution and / or by TU CIBIL. Failure of either the bank/financial Institutions and / or TU CIBIL entitles you to receive a compensation of ₹100/- for each day of delay from the bank/financial Institutions and/ or TU CIBIL (as applicable), shall be credited to the provided account details.</li>
+								<li style="list-style: disc;">Kindly note that compensation is applicable solely to domestic or local accounts and is not valid for NRI accounts. All fields in this section are mandatory. Help us address your complaint promptly by providing the following details to compensate for potential delays.</li>
+								<li style="list-style: disc;">All fields in this section are mandatory. Help us address your complaint promptly by providing the following details to compensate for potential delays.</li>
+								<li style="list-style: disc;">You can only update these details until the closure of your dispute or complaint. Failure to update might lead you to forfeit the compensation.</li>
+							</ul>
+
+						</div>
+					</div>
+					<br>
+
+					 <div id="divTag">
+					 
+					  <form th:action="@{/save-payment-detail}" th:object="${paymentInformationDetail}"
+                        enctype="multipart/form-data" method="post" id="genaralQueryForm" name="genaralQueryForm"
+                        onsubmit="return confirmFormValidation()">
+
+							<div class="form_subhead">IDENTIFICATION DETAILS</div>
+							<hr>
+							<br>
+							
+							<div class="row pr-2">
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name">ID Type<span class="required_icon">*</span></div>
+								</div>
+								<div class="col-lg-4 col-md-12 mb-4 mb-lg-2">
+									<select name="id_type" class="form-control select shadow-none"
+										style="font-size:14px;" th:field="*{paymentIdType}"  id="id_type" 
+										
+										>
+										<option value="" title="">Select an ID type</option>
+										<option th:each="entry : ${idProofMap.entrySet()}"
+											th:value="${entry.key}" th:utext="${entry.value}"></option>
+									</select>
+								</div>
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name ">ID Number<span class="required_icon">*</span></div>
+								</div>
+								<div class=" col-lg-4 col-md-12 mb-1">
+									<input type="text" autocomplete="off" name="paymentIdNumber"
+										class="form-control shadow-none" value="" id="id_number"
+										 th:field="*{paymentIdNumber}" placeholder="Enter ID number of the provided ID"
+										
+										>
+								</div>
+							</div>
+							
+							
+							<br>
+							<div class="row pr-2">
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name">Account Holder Name<span class="required_icon">*</span>
+									</div>
+								</div>
+								<div class=" col-lg-4 col-md-12 mb-4 mb-lg-2">
+									<div class="input-group mb-3">
+										<input type="text" autocomplete="off"
+											class="form-control shadow-none" name="bankAccountHolderName"
+											 value="" id="holder_name" minlength="3"
+											maxlength="80" th:field="*{bankAccountHolderName}" placeholder="Enter name as per official records"
+											
+											>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form_subhead">Account INFORMATION</div>
+							<hr>
+
+
+
+							<div class="row pr-2">
+								<div class=" col-lg-2 col-md-12 mb-2 ">
+									<div class="field_name">
+										IFSC Code<span class="required_icon">*</span>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-12 mb-4 mb-lg-2">
+									<input type="text" autocomplete="off" name="ifscCode"
+										class="form-control shadow-none" minlength="11" maxlength="11"
+										value="" id="ifsc" th:field="*{ifscCode}" placeholder="Enter your bank branch's unique IFSC" 
+										
+										>
+								</div>
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name">
+										Bank Name<span class="required_icon">*</span>
+									</div>
+								</div>
+								<div class=" col-lg-4 col-md-12 mb-1">
+									<input type="text" autocomplete="off" name="bankname"
+										class="form-control shadow-none" value="" id="bankname"
+										 minlength="3" maxlength="50" th:field="*{bankName}" placeholder="Enter your bank’s name"
+										
+										>
+								</div>
+							</div>
+							<br>
+
+							<div class="row pr-2">
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name">
+										Bank Account Type<span class="required_icon">*</span>
+									</div>
+								</div>
+								<div class=" col-lg-4 col-md-12 mb-1">
+									<select name="account_type" class="form-control shadow-none"
+										style="font-size: 14px;" th:field="*{bankAccountType}"  id="account_type"
+										
+										>
+										<option value="" title="">Select your account type</option>
+										<option th:each="entry : ${bankAccountTypeMap.entrySet()}"
+											th:value="${entry.key}" th:utext="${entry.value}"></option>
+									</select>
+								</div>
+
+							</div>
+							
+							<br>
+							<div class="row pr-2">
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name">Account Number<span class="required_icon">*</span></div>
+								</div>
+								<div class=" col-lg-4 col-md-12 mb-4 mb-lg-2">
+									<input type="password" autocomplete="off" name="accountNumber"
+										class="form-control shadow-none " value="" id="account_number"
+										minlength="5" maxlength="20"   th:field="*{accountNumber}"  placeholder="Enter your bank account number"
+										style="padding: 16px 9px;"
+										
+										>
+								</div>
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name">Confirm Account Number<span class="required_icon">*</span>
+									</div>
+								</div>
+								<div class=" col-lg-4 col-md-12 mb-1">
+									<input type="text" autocomplete="off" name="confirm_account_number"
+										class="form-control shadow-none" value="" id="confirm_account_number" 
+										minlength="5" maxlength="20" placeholder="Re-enter your bank account number"
+										
+										>
+								</div>
+							</div>
+
+							<br>
+							<div class="row pr-2">
+								<div class=" col-lg-2 col-md-12 mb-2">
+									<div class="field_name">
+										Bank Address<span class="required_icon">*</span>
+									</div>
+								</div>
+								<div class=" col-lg-9 col-md-12 mb-2">
+									<div class="input-group mb-12">
+										<textarea type="text" autocomplete="off" id="bank_address" 
+											class="form-control shadow-none" name="bankAddress"
+											th:field="*{bankAddress}"  value="" minlength="3"
+											maxlength="100" placeholder="Enter the complete address of your bank branch where your account is registered"
+											
+											></textarea>
+
+									</div>
+								</div>
+
+							</div>
+
+							<hr>
+							<!-- <label class="container-cb" style="word-break: break-all;">I	 undertake that the bank account details provided by me, belong to me and are correct and accurate and the said account is a resident account in in India. I understand that if the said details provided by me are incorrect and inaccurate the amount payable to me, if any, will be credited to the wrong account and TU CIBIL will not be responsible for the same in any form or manner. I further understand that any amount payable as compensation under the RBI Circular dated October 26, 2023 bearing No. RBI/2023-24/72 DoR.FIN.REC.48/20.16.003/2023-24 will be applicable only under the terms as contained in the said circular.
+								<input type="checkbox" 
+								id="checkAgree" checked> <span class="checkmark"></span>
+							</label> -->
+							<div class="d-flex flex-column flex-md-row" style="word-wrap: break-word;gap: .5rem;">
+								<label class="container-cb ">
+									<input type="checkbox" th:field="*{consent}" name="consent" checked>
+									<span class="checkmark"></span>
+								</label>
+								<p>I undertake that the bank account details provided by me, belong to me and are correct and accurate and the said account is a resident account in in India. I understand that if the said details provided by me are incorrect and inaccurate the amount payable to me, if any, will be credited to the wrong account and TU CIBIL will not be responsible for the same in any form or manner. I further understand that any amount payable as compensation under the RBI Circular dated October 26, 2023 bearing No. RBI/2023-24/72 DoR.FIN.REC.48/20.16.003/2023-24 will be applicable only under the terms as contained in the said circular.</p>
+								</div>
+							</div>
+
+							<div class="row d-flex justify-content-center">
+								<hr>
+
+								<input type="submit" value="Submit" id="confirmForm"
+									class="o_btn submit" >
+							</div>
+
+							
+
+
+
+
+						</form>
+					 </div>
+
+
+
+
+				</div>
+
+			</div>
+
+			<div class="page-footer">
+				© 2023 Copyright: COPYRIGHT 2016 TRANSUNION CIBIL LIMITED (FORMERLY:
+				CREDIT INFORMATION BUREAU (INDIA) LIMITED) ALL RIGHTS RESERVED.
+
+				<div class="footer-links">
+					<ul class="column">
+						<!-- 		<li class="footer-item footer-item-col-1 footer-item-row-1"><a href="#">PRIVACY</a></li>
+				<li class="footer-item footer-item-col-1 footer-item-row-2"><a href="#">SITEMAP</a></li>
+				<li class="footer-item footer-item-col-1 footer-item-row-3"><a href="#">SUIT FILED CASES</a></li> -->
+						<li class="footer-item footer-item-col-1 footer-item-row-4"><a
+							th:href="${@environment.getProperty('redirect.termsAndConditions.page.url')}">TERMS
+								AND CONDITIONS</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- <div class="modal fade show" id="exampleModalToggle" aria-hidden="true"
+		aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content p-4 rounded-xl">
+				<div class="modal-header border-bottom-0 justify-content-center">
+
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						width="100px" height="100px" viewBox="0 0 100 100"
+						enable-background="new 0 0 100 100" xml:space="preserve">
+						<g>
+							<g>
+								<g>
+									<path fill="#6ACCE6"
+							d="M49.969,32.888c-9.355,0-16.967,7.611-16.967,16.966c0,9.355,7.611,16.967,16.967,16.967
+				c9.355,0,16.965-7.611,16.965-16.967C66.935,40.499,59.324,32.888,49.969,32.888z M60.676,45.756
+				c-0.985,1.058-2.023,2.065-3.047,3.089c-2.853,2.857-5.69,5.731-8.573,8.561c-1.709,1.678-2.98,1.67-4.678,0.018
+				c-1.685-1.64-3.355-3.296-4.982-4.99c-1.209-1.26-1.236-2.914-0.16-4.036c1.045-1.09,2.821-1.147,4.038,0.026
+				c1.126,1.08,2.107,2.309,3.264,3.6c3.373-3.385,6.463-6.506,9.584-9.598c0.5-0.493,1.079-1.048,1.721-1.228
+				c1.217-0.339,2.436-0.151,3.159,1.079C61.715,43.487,61.661,44.701,60.676,45.756z" />
+									<path fill="#6ACCE6"
+							d="M75.925,12.933H24.014c-6.136,0-11.112,4.976-11.112,11.112v51.912c0,6.137,4.976,11.111,11.112,11.111
+				h51.911c6.137,0,11.111-4.975,11.111-11.111V24.044C87.036,17.908,82.062,12.933,75.925,12.933z M49.969,70.523
+				c-11.398,0-20.67-9.272-20.67-20.67s9.272-20.67,20.67-20.67s20.67,9.272,20.67,20.67S61.367,70.523,49.969,70.523z" />
+								</g>
+							</g>
+						</g>
+					</svg>
+
+				</div>
+				<div class="modal-body text-center  ">
+					<div class="error-msg mb-3">Details updated successfully!</div>
+					<div class="err-desc">You will be notified via your
+						registered SMS or Email if there is a delay in resolving your
+						dispute.</div>
+				</div>
+				<div class="modal-footer justify-content-center border-top-0">
+					<input type="submit" value="Close" id="form10Submit"
+						class="o_btn submit" data-bs-target="#exampleModalToggle"
+						data-bs-toggle="modal">
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="modal fade show" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color: #4040406f;opacity: 1;">
+		<div class="modal-dialog modal-dialog-centered" role="document" >
+			<div class="modal-content ">
+				<div class="modal-header" style="border-bottom: 0 !important;padding-bottom: .5rem;">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closePopUp" style="outline: none;">
+						<span aria-hidden="true" style="font-size: 30px;">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body pt-0" style="text-align: center;padding-bottom: 2.5rem;">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					width="100px" height="100px" viewBox="0 0 100 100"
+					enable-background="new 0 0 100 100" xml:space="preserve">
+					<g>
+						<g>
+							<g>
+								<path fill="#6ACCE6"
+						d="M49.969,32.888c-9.355,0-16.967,7.611-16.967,16.966c0,9.355,7.611,16.967,16.967,16.967
+			c9.355,0,16.965-7.611,16.965-16.967C66.935,40.499,59.324,32.888,49.969,32.888z M60.676,45.756
+			c-0.985,1.058-2.023,2.065-3.047,3.089c-2.853,2.857-5.69,5.731-8.573,8.561c-1.709,1.678-2.98,1.67-4.678,0.018
+			c-1.685-1.64-3.355-3.296-4.982-4.99c-1.209-1.26-1.236-2.914-0.16-4.036c1.045-1.09,2.821-1.147,4.038,0.026
+			c1.126,1.08,2.107,2.309,3.264,3.6c3.373-3.385,6.463-6.506,9.584-9.598c0.5-0.493,1.079-1.048,1.721-1.228
+			c1.217-0.339,2.436-0.151,3.159,1.079C61.715,43.487,61.661,44.701,60.676,45.756z" />
+								<path fill="#6ACCE6"
+						d="M75.925,12.933H24.014c-6.136,0-11.112,4.976-11.112,11.112v51.912c0,6.137,4.976,11.111,11.112,11.111
+			h51.911c6.137,0,11.111-4.975,11.111-11.111V24.044C87.036,17.908,82.062,12.933,75.925,12.933z M49.969,70.523
+			c-11.398,0-20.67-9.272-20.67-20.67s9.272-20.67,20.67-20.67s20.67,9.272,20.67,20.67S61.367,70.523,49.969,70.523z" />
+							</g>
+						</g>
+					</g>
+				</svg>
+				<div class="error-msg mb-3">Details updated successfully!</div>
+					<div class="err-desc">You will be notified via your
+						registered SMS or Email if there is a delay in resolving your
+						dispute.</div>
+
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../static/js/update-payment-info.js"></script>
+
+</body>
+
+</html>

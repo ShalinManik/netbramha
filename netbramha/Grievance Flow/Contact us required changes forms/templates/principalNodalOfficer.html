@@ -1,0 +1,192 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>CIBIL (CONTACT-US)</title>
+<link th:href="@{/img/favicon.ico}" rel="shortcut icon" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/ssp.css}">
+<link rel="stylesheet" href="@{/css/form-basic.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/consent-checkbox.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/form-basic.css}">
+<script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/general.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" src="@{/js/form4.js}"></script>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/font-awesome.min.css}">
+<script type="text/javascript" th:src="@{/js/common_consumer_util.js}"></script>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/flatpickr.min.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" th:src="@{/js/flatpickr.js}"></script>
+
+</head>
+
+<body onload="Captcha();">
+	<div class="wrapper anim">
+		<div class="header">
+			<div class="logo">
+				<img th:src="@{/img/logo.png}" title="" alt="CIBIL - Empowering You"
+					aria-describedby="ui-id-6">
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		<div class="container">
+			<div class="lastStepContent">
+
+				<div class="stepFlow mb-0">
+					<div class="breadcrum">
+						<span class="level_1A" style="font-size: 16px; font-weight: bold;"
+							th:text="${level1}"></span> <span class="level_2A"
+							style="font-size: 16px; font-weight: bold;" th:text="${level2}"></span>
+					</div>
+				</div>
+				<div class="form_box gray_gradiant">
+					<div
+						class="d-flex justify-content-between align-items-center flex-column-reverse flex-md-row ">
+						<div class="alert alert-danger errMsg mb-0" id="errorDispute"
+							style="width: 50%; display: none;">
+							<span id="error-container"
+								style="margin-left: 15px; font-weight: 600; font-size: 13px; display: block;"></span>
+						</div>
+						<span class="required_icon ml-md-auto mb-3 mb-md-0"><b>All
+								fields marked with (*) are mandatory</b></span>
+					</div>
+
+					<div class="alert alert-danger" id="settimeout"
+						th:if="${errorMessageList}">
+						<ul>
+							<li style="list-style: none;" th:each="err : ${errorMessageList}"
+								th:text="${err}" class="error"></li>
+						</ul>
+					</div>
+					
+					<hr>
+							<div class="form_subhead text-dark">Visit Our Grievance Desk</div>
+
+							<p class="sub_para">If you are following up on your previous query/ request, kindly specify the following details.<br>
+								To raise a new query/ request, kindly click on ‘New Application’ </p>
+							<br>
+							<hr>
+
+					<div id="divTag">
+						<!-- <form th:action="@{/ogno/og-nodal-officer}" th:object="${grevience}"
+							enctype="multipart/form-data" method="post" id="form9"
+							name="form9">-->
+							
+							
+
+							<form th:action="@{/ogpno/getExistingSrDetails}" method="post" th:object="${grevience}" id="form1" name="form1">
+
+							<input id="hiddenTemplateCode" type="hidden"
+								th:field="*{templateCode}">
+
+							<div class="row">
+								<div class="col-sm-12 col-lg-6 col-md-5">
+									<div class="field_name">
+										Enter your Dispute ID or Service Request Number<span
+											class="required_icon">*</span>
+									</div>
+								</div>
+								<div class="col-sm-12 col-lg-5 col-md-6">
+									<div class="input-group mb-3 ">
+										<input type="text" autocomplete="off"
+											class="form-control shadow-none" name="disputeOrSrId"
+											required value="" id="disputeOrSrId"
+											th:field="*{disputeOrSrId}"
+											placeholder="ID received at the time of your query/request">
+										<div class="input-group-append">
+											<span class="input-group-text" id="basic-addon1"> <img
+												th:src="@{/img/info_ic.png}" class="info_ic"
+												th:title="${@environment.getProperty('ticker.email.form8.commercial')}"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<br>
+							<div class="row ">
+								<div class="col-sm-12 col-lg-6 col-md-5">
+									<div class="email field_name">
+										Enter a valid Mobile number or Email ID<span
+											class="required_icon">*</span>
+									</div>
+								</div>
+								<div class="col-sm-12 col-lg-5 col-md-6">
+									<div class="input-group mb-3 ">
+										<input type="text" autocomplete="off"
+											class="form-control shadow-none" name="emailOrMobNumber"
+											id="emailOrMobNumber" th:field="*{emailOrMobNumber}"
+											placeholder="Eg: 9999999999 or johndoe@gmail.com"
+											maxlength="50" required oninput="checkValidation()">
+												
+										<div class="input-group-append">
+											<span class="input-group-text" id="basic-addon1"> <img
+												th:src="@{/img/info_ic.png}" class="info_ic"
+												th:title="${@environment.getProperty('ticker.email.form8.commercial')}"></span>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+
+							<br>
+							<div class="row d-flex justify-content-center  gap-md-5 gap-2">
+								<hr>
+
+								<!-- <input type="submit" value="Submit Details" id="form10Submit" class="o_btn submit m-0"
+									onclick="ValidateConfirmForm()" />-->
+									
+									<input type="submit" value="Submit Details" id="form10Submit" class="o_btn submit m-0"
+									onclick="validateForm1()" />
+									
+										&nbsp;&nbsp;&nbsp;&nbsp;
+										
+										
+								
+								<a href="#"  th:href="@{/ogpno/newApplicationForm/{templatecode}(templatecode=*{templateCode})}" 
+									style="text-decoration: none;"> <input type="button"
+									value="Nodal Officer" id="form10NewApp"
+									class="o_btn submit m-0" style="width: 165px;" />	
+									</a>	
+									
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="#"  th:href="@{/ogpno/newApplicationForm/{templatecode}(templatecode=*{templateCode})}" 
+									style="text-decoration: none;"> <input type="button"
+									value="New Application" id="form10NewApp"
+									class="o_btn submit m-0" style="width: 165px;" />	
+									</a>		
+							
+							
+							</div>
+
+						</form>
+						<br>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>
+

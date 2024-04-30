@@ -1,0 +1,532 @@
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>CIBIL (CONTACT-US)</title>
+<link th:href="@{/img/favicon.ico}" rel="shortcut icon" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/ssp.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/consent-checkbox.css}">
+
+<script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/general.js}"></script>
+<script type="text/javascript" th:src="@{/js/common_consumer_util.js}"></script>
+ <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/flatpickr.min.css}">
+<script type="text/javascript" th:src="@{/js/flatpickr.js}"></script>
+</head>
+<body onload="Captcha();">
+<div class="wrapper anim">
+	<div class="header">
+		<div class="logo"><img th:src="@{/img/logo.png}" title="" alt="CIBIL - Empowering You" aria-describedby="ui-id-6"></div>
+	   <div class="clear"></div>
+	</div>
+	
+		<div class="clear"></div>
+<div class="container">
+        <div class="lastStepContent">
+						<div class="stepFlow">
+							 <div class="breadcrum">
+								<span class="level_1A" style="font-size:16px;font-weight: bold;" th:text="${level1}"></span>
+								<span class="level_2A" style="font-size:16px;font-weight: bold;" th:text="${level2}"></span>
+								<span class="level_3A" style="font-size:16px;font-weight: bold;" th:text="${level3}"></span>
+							</div>
+						</div>
+						
+				<div class="form_box gray_gradiant">
+				<div class="madatory"><span style="color:red"><b>All fields marked with (*) are mandatory</b></span></div><br>
+				
+						<br>        	
+			       
+			       <div id="divTag" class="container">
+<form  th:action="@{/ogno/srdisputeid-no}" th:object="${consumerOgUiDetails}" enctype="multipart/form-data" method="post" id="genaralQueryForm" name="genaralQueryForm" onsubmit="return validateForm3()">
+	    <input id="hiddenTemplateCode"  type="hidden"    th:field="*{formCode}">
+	<div  class="alert alert-danger"  id="settimeout"  style="display:none;border-color: none;">
+					
+					<span id="errorname" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+					<span id=errorBirthday style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+				
+					<span id="errormobile" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+					<span id="errorSR" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+					<span id=errorEmail style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+					
+					<span id=errorIdNumber style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+										
+					<span id="errordispute" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+				
+					<span id="errordesc" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+				
+				</div>
+	<!-- added this div tag to show server validation messages -->
+					<div class="alert alert-danger"  id="settimeout" th:if="${errorMessageList}">
+    					<ul ><li style="list-style:none;" th:each="err : ${errorMessageList}" th:text="${err}" class="error"></li></ul> 
+					</div>
+				
+					
+		
+<div class="form_subhead">Personal Information
+
+						</div>
+						<br><hr>
+<div class="row">
+
+	<div class="col-sm-2">
+		<div class="field_name">Customer Name <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+        <input type="text" autocomplete="off"  name="customername" class="form-control" th:field="*{customerName}" value="" id="customername" required
+        oninvalid="this.setCustomValidity('Please mention Customer Name. Customer Name should have minimum 6 characters')"  oninput="this.setCustomValidity('')"> 
+        
+    </div>
+	
+    
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-2">
+		<div class="field_name">Gender<span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-3">
+		<select name="gender" class="form-control" style="font-size:14px;" required
+          id="gender" th:field="*{gender}" 
+                 oninvalid="this.setCustomValidity('Please select Gender from the drop down list')"  oninput="this.setCustomValidity('')">
+									<option value="" title="">Select</option>
+									<option th:each="entry : ${genderMap.entrySet()}"
+                                 			th:value="${entry.key}"
+                                 			th:utext="${entry.value}">
+                        			</option>
+								</select>  
+	 </div>
+	 
+	 <div class="col-sm-2">
+		<div class="field_name">Date of Birth <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-4">
+ <input required type="text" id="birthday"  th:field="*{dateOfBirth}" name="birthday" placeholder="DD/MM/YYYY" 
+ class="form-control form-control-sm flatpickr flatpickr-input active" style="background-color:white"
+     oninvalid="this.setCustomValidity('Please mention Date of Birth')"  oninput="this.setCustomValidity('')" >
+    </div>
+</div>
+<div class="clear"></div>
+<div class="form_subhead">Contact Details</div>
+<br>
+<hr>
+<div class="row">
+	
+	<div class="col-sm-2">
+		<div class="field_name">Mobile Number<span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-3">
+			<input type="number" autocomplete="off"  required name="mobile" min=1 class="form-control" 
+			th:field="*{mobileNumber}" value="" id="mobile"
+				oninvalid="this.setCustomValidity('Please mention Mobile number')"  oninput="this.setCustomValidity('')">
+    </div>
+    <div class="col-sm-2">
+		<div class="field_name">Email ID<span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-4">
+ 		<div class="input-group mb-3">
+
+ 		 <input type="email" autocomplete="off"   required name="email" class="form-control" th:field="*{emailId}" value="" id="email"
+ 		   oninvalid="this.setCustomValidity('Please mention Email ID')"  oninput="this.setCustomValidity('')" >   
+ 		
+  		<div class="input-group-append">
+	    <span class="input-group-text" id="basic-addon1"><img th:src="@{/img/info_ic.png}" style="height:15px" class="info_ic"  th:title="${@environment.getProperty('ticker.email.consumer')}"></span>
+  			</div>
+		</div>
+ 	</div>
+  	
+ </div>
+ 
+ <div class="clear"></div>
+<div class="form_subhead">Identification Details</div>
+<br>
+<hr>
+<div class="row">
+	
+	<div class="col-sm-2">
+		<div class="field_name">Identity Proof<span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-3">
+		<select name="proofId" required class="form-control" id="proofSelect" th:field="*{idProofType}" onchange="getproofData();" style="border: 1px solid rgb(198, 198, 200); font-size:14px"
+		  oninvalid="this.setCustomValidity('Please select Identity Proof type from the drop down list')"  oninput="this.setCustomValidity('')">
+								<option value="" title="">Select</option>
+								<option th:each="entry : ${idProofMap.entrySet()}"
+                                 			th:value="${entry.key}"
+                                 			th:utext="${entry.value}">
+                        			</option>
+		</select>
+	</div>
+    <div class="col-sm-2">
+		<div class="field_name">Identity Proof No.<span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-4">
+ 			<input type="text" autocomplete="off"  required class="form-control" name="proofNumber" th:field="*{idProofValue}" value="" id="proofNumber"  maxlength="30" 
+ 			oninvalid="this.setCustomValidity('Please mention Identity Proof No')"  oninput="this.setCustomValidity('')">
+ 			
+
+ 	</div>
+  	
+ </div>
+ <div class="clear"></div>
+ 
+ 
+ 
+<div class="form_subhead">Service Request</div>
+<br>
+<hr>
+<div class="row">
+	
+	<div class="col-sm-2">
+		<div class="field_name">Service Request</div>
+	</div>
+   <!--  <div class="col-sm-3">
+			<input type="text" autocomplete="off"  class="form-control"  name="servicerequest" th:field="*{serviceRequest}" value="" id="servicerequest" minlength="4" maxlength="8">
+    </div> -->
+       <div class="col-sm-3">
+<div class="input-group mb-3">
+	
+	
+			<input type="number" autocomplete="off"   class="form-control"  name="servicerequest" th:field="*{serviceRequest}" value="" id="servicerequest"
+			
+				 min="1111" max="99999999" oninvalid="this.setCustomValidity('Enter Valid Service Request.Service Request should be between 4 to 8 digits')"
+					  oninput="this.setCustomValidity('')">
+			
+<div class="input-group-append">
+<span class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.service.request')}"></span>
+</div>
+</div>
+</div>
+
+
+    
+    <div class="col-sm-2">
+		<div class="field_name">Dispute ID</div>
+	</div>
+    <div class="col-sm-4">
+ 		<div class="input-group mb-3">
+ 		<input type="text" autocomplete="off" class="form-control" name="dispute_id" th:field="*{disputeId}" id="dispute_id"
+ 		placeholder="For e.g. CDS01012021987356">
+   
+ 		
+  		<div class="input-group-append">
+	    <span class="input-group-text" id="basic-addon1">
+	    <img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.dispute.id')}"></span>
+  			</div>
+		</div>
+ 	</div>
+  	
+ </div>
+<div class="row">
+
+ 	<div class="col-sm-2 ">
+ 				<div class="field_name">Describe your query<span style="color:red">*</span></div>
+ 		
+ 	</div>
+ 	<!-- <div class="col-sm-9 address_box">
+ 		<textarea cols="10" rows="" required th:field="*{describeYourQuery}" class="no_anim"  maxlength="3000" id="textareadesc"></textarea>
+ 		
+		<div class="word_remain">Remaining Characters : <span id="remain-description" class="safe" style="color:red;"></span>
+								
+ 	</div>
+ </div> -->
+ 	<div class="col-sm-10">
+<div class="input-group mb-12">
+ 		<textarea style="width:80%;margin-top:1px;font-size:14px;" rows="5" required th:field="*{describeYourQuery}" class="no_anim"  maxlength="3000" id="textareadesc"
+ 		oninvalid="this.setCustomValidity('Please specify your query.')"  oninput="this.setCustomValidity('')"></textarea>
+   
+<div class="input-group-append" th:switch="${consumerOgUiDetails.formCode}">
+
+<span th:case="'cd1f3'" class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.staus.of.dispute')}"></span>
+
+<span th:case="'cd2f3'" class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.how.to.raise.dispute')}"></span>
+
+<span th:case="'cd3f3'" class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.account.section')}"></span>
+
+<span th:case="'cd4f3'" class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.enquiry.section')}"></span>
+
+<span th:case="'cd5f3'" class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.personal.section')}"></span>
+
+<span th:case="'cd6f3'" class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.contact.section')}"></span>
+
+<span th:case="'cd7f3'" class="input-group-text" id="basic-addon1">
+<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic" th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.employment.section')}"></span>
+
+</div>
+
+</div>
+<div class="word_remain">Remaining Characters : <span id="remain-description" class="safe" style="color:red;"></span>
+		 				
+			</div>
+</div>
+			
+</div>
+<div class="row">
+						<div class="infos_box col-sm-12">
+							
+							<div style="font-size:14px;color:#833e1f;font-weight:bold">UPLOAD DOCUMENT</div>
+							<hr>
+							<br>
+							 <div id="p1">
+							 <span id="customFileError" style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+								<label class="form-label" for="customFile"></label>
+								<input onchange="ValidateSize(this)" type="file"  accept=".jpg, .jpeg, .png, .pdf"   th:field="*{attachment1}" class="form-control" id="customFile" style="width:58%;height:35px;display: inline-block;"/>
+								<img th:src="@{/img/add_btn.png}" onclick="document.getElementById('p2').style.display='block'" id="img1" title="Add more document">
+							</div>
+							<br>
+							<div id="p2" style="display:none;"><span id="customFile1Error" style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+							<span id="customFile1Error" style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+							
+								<label class="form-label" for="customFile"></label>
+								<input onchange="ValidateSize(this)" type="file"  accept=".jpg, .jpeg, .png, .pdf"  th:field="*{attachment2}" class="form-control" id="customFile1" style="width:58%;height:35px;display: inline-block;"/>
+								<img th:src="@{/img/add_btn.png}"  onclick="document.getElementById('p3').style.display='block'" id="img2"  title="Add more document">
+								<img th:src="@{/img/remove_btn.png}" id="removeImage2" onclick="document.getElementById('p2').style.display='none'"title="Remove document">
+							</div>
+							<br>
+						
+							<div id="p3" style="display:none;">
+							<span id="customFile2Error" style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+							
+								<label class="form-label" for="customFile"></label>
+								<input onchange="ValidateSize(this)" type="file" accept=".jpg, .jpeg, .png, .pdf"  th:field="*{attachment3}" class="form-control" id="customFile2" style="width:58%;height:35px;display: inline-block;"/>
+								<img th:src="@{/img/add_btn.png}"  id="img3"  onclick="document.getElementById('p4').style.display='block'"  title="Add more document">
+								<img th:src="@{/img/remove_btn.png}" id="removeImage3" onclick="document.getElementById('p3').style.display='none'" title="Remove document">
+							</div>
+								<br>
+							<div id="p4" style="display:none;">
+							<span id="customFile3Error" style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+								<label class="form-label" for="customFile"></label>
+								<input onchange="ValidateSize(this)" type="file"  accept=".jpg, .jpeg, .png, .pdf"  th:field="*{attachment4}" class="form-control" id="customFile3" style="width:58%;height:35px;display: inline-block;"/>
+								<img th:src="@{/img/add_btn.png}" id="img4"  onclick="document.getElementById('p5').style.display='block'"    title="Add more document">
+								<img th:src="@{/img/remove_btn.png}" id="removeImage4"  onclick="document.getElementById('p4').style.display='none'"   title="Remove document">
+							</div>
+							<br>
+							<div id="p5" style="display:none;">
+							<span id="customFile4Error" style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+								<label class="form-label" for="customFile"></label>
+								<input onchange="ValidateSize(this)" type="file"  accept=".jpg, .jpeg, .png, .pdf" th:field="*{attachment5}" class="form-control" id="customFile4" style="width:58%;height:35px;display: inline-block;"/>
+								<img th:src="@{/img/add_btn.png}" id="img5" title="Add more document">
+								<img th:src="@{/img/remove_btn.png}" id="removeImage5"  title="Remove document">
+							</div>
+						</div>	
+</div>
+<div class="row">
+	<div style="padding:0 20px;">
+								<p class="attachment_header_desc"><strong>
+								When uploading documents, please note the following :
+								</strong></p>
+								<ul class="attachement_desc">
+								<li>Ensure the documents are not password-protected.</li>
+								<li>Upload latest address proof wherein address and transactions are not older than 3 months from current date.</li>
+								<li>Upload documents with extension as PNG, JPG, JPEG, PDF etc.</li>
+								<li>Max. file size is 5MB per upload.</li>
+								<li>Max. 5 Attachments are permitted at a time.</li>
+								</ul>
+						</div>
+					
+</div>
+<div class="clear"></div>
+<div class="payment_section">
+<div class="form_subhead">Payment Details</div>
+<br>
+<hr>
+
+<p><span style="font-size:20px;color: #00A6CA;">&#10147; </span>As per RBI guidelines CI & CIC are supposed to pay compensation of Rs.100/- per day in case dispute resolution goes beyond 30 days. Please enter your bank account details where compensation is supposed to be credited in case of delay. Please note Payment related information can be captured until dispute is open.</p><br>
+
+
+<label class="main"> <p>SUBMIT ACCOUNT DETAILS</p>
+        <input type="checkbox" name="rbiRuleChecked" class="form-control" th:field="*{rbiRuleChecked}" value="" id="rbiRuleChecked"> 
+        <span class="geekmark"></span> 
+    </label>
+
+    <hr>
+    
+<div class="row">
+	
+	<div class="col-sm-2">
+		<div class="field_name">Identity Proof <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-3">
+		<select name="proofId" required class="form-control" id="paymentIdType" th:field="*{paymentInformationDetails.paymentIdType}" onchange="getproofData();" style="border: 1px solid rgb(198, 198, 200); font-size:14px"
+		  oninvalid="this.setCustomValidity('Please select Identity Proof type from the drop down list')"  oninput="this.setCustomValidity('')">
+								<option value="" title="">Select</option>
+								<option th:each="entry : ${idProofMap.entrySet()}"
+                                 			th:value="${entry.key}"
+                                 			th:utext="${entry.value}">
+                        			</option>
+		</select>
+	</div>
+	
+    <div class="col-sm-2">
+		<div class="field_name">Identity Proof No. <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-4">
+ 			<input type="text" autocomplete="off"  required class="form-control" name="paymentIdNumber" th:field="*{paymentInformationDetails.paymentIdNumber}" value="" id="paymentIdNumber"  maxlength="30" 
+ 			oninvalid="this.setCustomValidity('Please mention Identity Proof No')"  oninput="this.setCustomValidity('')">
+ 	</div>
+ 	 </div>
+ 	<br>
+ 	
+ 	
+ 	<div class="row">
+ 	<div class="col-sm-3">
+		<div class="field_name">Account Holder Name <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+        <input type="text" autocomplete="off"  name="bankaccountholdername" class="form-control" th:field="*{paymentInformationDetails.bankAccountHolderName}" value="" id="bankaccountholdername" required
+        oninvalid="this.setCustomValidity('Please mention Account Holder Name. Account Holder Name should have minimum 6 characters')"  oninput="this.setCustomValidity('')"> 
+    </div>
+    </div>
+     <br>
+ 	<div class="row">
+ 	<div class="col-sm-3">
+		<div class="field_name">Account Number <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+        <input type="text" autocomplete="off"  name="accountnumber" class="form-control" th:field="*{paymentInformationDetails.accountNumber}" value="" id="accountnumber" required
+        oninvalid="this.setCustomValidity('Please mention Customer Name. Customer Name should have minimum 6 characters')"  oninput="this.setCustomValidity('')"> 
+    </div>
+    </div>
+    <br>
+ 	<div class="row">
+    <div class="col-sm-3">
+		<div class="field_name">Confirm Account Number <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+        <input type="text" autocomplete="off"  name="confirmaccountnumber" class="form-control" value="" id="confirmaccountnumber" required
+        oninvalid="this.setCustomValidity('Please mention Customer Name. Customer Name should have minimum 6 characters')"  oninput="this.setCustomValidity('')"> 
+    </div>
+    </div>
+    
+    
+    <br>
+ 	<div class="row">
+    <div class="col-sm-3">
+		<div class="field_name">Account Type <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+		<select name="proofId" required class="form-control" id="proofSelect" th:field="*{paymentInformationDetails.bankAccountType}" onchange="getproofData();" style="border: 1px solid rgb(198, 198, 200); font-size:14px"
+		  oninvalid="this.setCustomValidity('Please select Identity Proof type from the drop down list')"  oninput="this.setCustomValidity('')">
+								<option value="" title="">Select</option>
+								<option value="1" title="">Current</option>
+								<option value="2" title="">Savings</option>
+<!-- 								<option th:each="entry : ${idProofMap.entrySet()}"
+                                 			th:value="${entry.key}"
+                                 			th:utext="${entry.value}">
+                        			</option> -->
+		</select>
+	</div>
+	</div>
+    
+    
+    <br>
+ 	<div class="row">
+    <div class="col-sm-3">
+		<div class="field_name">IFSC CODE <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+        <input type="text" autocomplete="off"  name="ifscCode" class="form-control" th:field="*{paymentInformationDetails.ifscCode}" value="" id="ifscCode" required
+        oninvalid="this.setCustomValidity('Please mention Customer Name. Customer Name should have minimum 6 characters')"  oninput="this.setCustomValidity('')"> 
+    </div>
+    </div>
+    
+        <br>
+ 	<div class="row">
+    <div class="col-sm-3">
+		<div class="field_name">Bank Name <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+        <input type="text" autocomplete="off"  name="bankname" class="form-control" th:field="*{paymentInformationDetails.bankName}" value="" id="bankname" required
+        oninvalid="this.setCustomValidity('Please mention Customer Name. Customer Name should have minimum 6 characters')"  oninput="this.setCustomValidity('')"> 
+    </div>
+    </div>
+    
+    
+    <br>
+ 	<div class="row">
+    <div class="col-sm-3">
+		<div class="field_name">Bank Address <span style="color:red">*</span></div>
+	</div>
+    <div class="col-sm-5">
+        <input type="text" autocomplete="off"  name="bankaddress" class="form-control" th:field="*{paymentInformationDetails.bankAddress}" value="" id="bankAddress" required
+        oninvalid="this.setCustomValidity('Please mention Customer Name. Customer Name should have minimum 6 characters')"  oninput="this.setCustomValidity('')"> 
+    </div>
+    </div>
+    
+  	<br><br>
+  	
+  	  	<label class="main"> <p>I give consent to CIBIL to share my account details with banks for compensation disbursement.</p>
+        <input type="checkbox" name="consent" class="form-control" th:field="*{consent}" value="" id="consent"> 
+        <span class="geekmark"></span> 
+    </label>
+</div>
+ <div class="clear"></div>
+ <div class="row">
+ <div>
+                                <img id="captchaImage" th:src="*{'data:realCaptcha/jpg;base64,'+ realCaptcha}"  /> 
+                               
+                            
+                            <img th:src="@{/img/refreshCaptcha.png}"  style="margin-left:10px;height:20px" 
+                            id="refreshButton" title="Refresh Captcha.">
+                            
+                            	<input id="hiddenCaptchaText" type="hidden" th:field="*{hiddenCaptcha}" />
+                            	<input id="captchaImageSource" type="hidden" th:field="*{realCaptcha}" />
+                            </div>
+                            <div class="clear" style="height:10px;"></div>
+                             <div class="col">
+                             <div id="errorCaptcha">
+                            <p><span  id="errorCaptchaMessage"  th:if="${errorMessage}"  th:text="${errorMessage}" style="color:red;">Error</span></p>
+                            <p  style="font-size:11px; margin-bottom:3px;font-weight: bold;">Enter the characters shown in the image<span style="color:red">*</span>
+                            </div>
+							<input type="text" autocomplete="off" class="form-control" required name="kaptcha"  minlength="5" maxlength="5" th:field="*{captcha}"  oninvalid="this.setCustomValidity('Please mention the characters as shown in the image')"  oninput="this.setCustomValidity('')"   
+							value="" id="kaptcha" style="max-width:180px;" >
+							
+							</div>
+</div>
+<div class="row d-flex justify-content-center">
+<hr>
+
+							<input type="submit"  id="form3Submit"  
+							value="Submit" class="o_btn submit" >
+</div>
+</form>			
+</div>
+			
+    </div>
+</div>
+	
+						
+	
+<div class="page-footer" >© 2020 Copyright:
+     COPYRIGHT 2016 TRANSUNION CIBIL LIMITED (FORMERLY: CREDIT INFORMATION BUREAU (INDIA) LIMITED) ALL RIGHTS RESERVED.
+
+<div class="footer-links">
+		<ul class="column">
+			<!-- <li class="footer-item footer-item-col-1 footer-item-row-1"><a href="#">PRIVACY</a></li>
+			<li class="footer-item footer-item-col-1 footer-item-row-2"><a href="#">SITEMAP</a></li>
+			<li class="footer-item footer-item-col-1 footer-item-row-3"><a href="#">SUIT FILED CASES</a></li> -->
+			<li class="footer-item footer-item-col-1 footer-item-row-4"><a th:href="${@environment.getProperty('redirect.termsAndConditions.page.url')}" >TERMS AND CONDITIONS</a></li>
+			</ul>
+	</div>
+	
+  </div>
+
+ 	    	<div class="clear"></div>
+		
+		
+			       </div>
+		         </div>		
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><script></script><div role="tooltip" class="ui-tooltip ui-widget ui-corner-all ui-widget-content" id="ui-id-6" style="top: 115px; left: 167px; display: block; opacity: 0;"><div class="ui-tooltip-content">CIBIL - Empowering You</div></div></body></html>
+

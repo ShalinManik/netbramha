@@ -1,0 +1,1033 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>CIBIL (CONTACT-US)</title>
+	<link th:href="@{/img/favicon.ico}" rel="shortcut icon" />
+	<link rel="stylesheet" type="text/css" href="../static/css/ssp.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/common.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/consent-checkbox.css}">
+	<link rel="stylesheet" type="text/css" href="../static/css/form-basic.css">
+
+	<script type="text/javascript" src="../static/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../static/js/general.js"></script>
+	<script type="text/javascript" src="../static/js/common_consumer_util.js"></script>
+	<script type="text/javascript" src="../static/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/flatpickr.min.css}">
+	<script type="text/javascript" th:src="@{/js/flatpickr.js}"></script>
+</head>
+
+
+
+
+
+
+
+
+<body onload="Captcha();">
+	<div class="wrapper anim">
+		<div class="header">
+			<div class="logo"><img th:src="@{/img/logo.png}" title="" alt="CIBIL - Empowering You" aria-describedby="ui-id-6">
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		
+
+		<div class="clear"></div>
+		<div class="container">
+			<div class="lastStepContent">
+				<div class="stepFlow">
+					<div class="breadcrum">
+						<span class="level_1A" style="font-size:16px;font-weight: bold;" th:text="${level1}"></span>
+						<span class="level_2A" style="font-size:16px;font-weight: bold;" th:text="${level2}"></span>
+						<span class="level_3A" style="font-size:16px;font-weight: bold;" th:text="${level3}"></span>
+					</div>
+				</div>
+
+				<div class="form_box gray_gradiant">
+					<div class="madatory"><span style="color:red"><b>All fields marked with (*) are mandatory</b></span></div><br>
+
+					<br>
+
+					<div id="divTag" class="container">
+						<form th:action="@{/saveconsumerdata}" th:object="${consumerUiDetails}" enctype="multipart/form-data"
+							method="post" id="genaralQueryForm" name="genaralQueryForm" onsubmit="return validateForm3()">
+							<input id="hiddenTemplateCode" type="hidden" th:field="*{formCode}">
+							<div class="alert alert-danger" id="settimeout" style="display:none;border-color: none;">
+
+								<span id="errorname" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorgender" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+								<span id=errorBirthday style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+								<span id="errormobile" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorSR" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id=errorEmail style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+								<span id="errorIdProofNumber" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorIdProofType" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+								<span id="errordispute" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+								<span id="errordesc" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorIdType"
+								style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+							<span id="errorIdNumber"
+								style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorHolderName"
+									style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorIfsc" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorAccountNo"
+									style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorConfirmAcc"
+									style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorAddress" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorBankType" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+								<span id="errorBankname" style="margin-left:15px;font-weight:600;font-size:13px;display: block;"></span>
+
+							</div>
+							<!-- added this div tag to show server validation messages -->
+							<div class="alert alert-danger" id="settimeout" th:if="${errorMessageList}" style="display: none;">
+								<ul>
+									<li style="list-style:none;" th:each="err : ${errorMessageList}" th:text="${err}" class="error"></li>
+								</ul>
+							</div>
+
+
+
+							<div class="form_subhead">Personal Information
+
+							</div>
+							<!-- <br> -->
+							<hr>
+							<div class="row">
+
+								<div class="col-sm-2">
+									<div class="field_name">Customer Name <span style="color:red">*</span></div>
+								</div>
+								<div class="col-sm-5">
+									<input type="text" autocomplete="off" name="customername" class="form-control"
+										th:field="*{customerName}" value="" id="customername">
+
+								</div>
+
+
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-sm-2">
+									<div class="field_name">Gender<span style="color:red">*</span></div>
+								</div>
+								<div class="col-sm-3">
+									<select name="gender" class="form-control" style="font-size:14px;" id="gender" th:field="*{gender}">
+										<option value="" title="">Select</option>
+										<option th:each="entry : ${genderMap.entrySet()}" th:value="${entry.key}" th:utext="${entry.value}">
+										</option>
+									</select>
+								</div>
+
+								<div class="col-sm-2">
+									<div class="field_name">Date of Birth <span style="color:red">*</span></div>
+								</div>
+								<div class="col-sm-4">
+									<input type="text" id="birthday" th:field="*{dateOfBirth}" name="birthday" placeholder="DD/MM/YYYY"
+										class="form-control form-control-sm flatpickr flatpickr-input active"
+										style="background-color:white">
+								</div>
+							</div>
+							<div class="clear"></div>
+							<div class="form_subhead">Contact Details</div>
+							<!-- <br> -->
+							<hr>
+							<div class="row">
+
+								<div class="col-sm-2">
+									<div class="field_name">Mobile Number<span style="color:red">*</span></div>
+								</div>
+								<div class="col-sm-3">
+									<input type="number" autocomplete="off" name="mobile" min=1 class="form-control"
+										th:field="*{mobileNumber}" value="" id="mobile">
+								</div>
+								<div class="col-sm-2">
+									<div class="field_name">Email ID<span style="color:red">*</span></div>
+								</div>
+								<div class="col-sm-4">
+									<div class="input-group mb-3">
+
+										<input type="email" autocomplete="off" name="email" class="form-control" th:field="*{emailId}"
+											value="" id="email">
+
+										<div class="input-group-append">
+											<span class="input-group-text" id="basic-addon1"><img th:src="@{/img/info_ic.png}"
+													style="height:15px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.email.consumer')}"></span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="clear"></div>
+							<div class="form_subhead">Identification Details</div>
+							<!-- <br> -->
+							<hr>
+							<div class="row">
+
+								<div class="col-sm-2">
+									<div class="field_name">Identity Proof<span style="color:red">*</span></div>
+								</div>
+								<div class="col-sm-3">
+									<select name="proofId" class="form-control" id="proofSelect" th:field="*{idProofType}"
+										onchange="getproofData();" style="border: 1px solid rgb(198, 198, 200); font-size:14px">
+										<option value="" title="">Select</option>
+										<option th:each="entry : ${idProofMap.entrySet()}" th:value="${entry.key}"
+											th:utext="${entry.value}">
+										</option>
+									</select>
+								</div>
+								<div class="col-sm-2">
+									<div class="field_name">Identity Proof No.<span style="color:red">*</span></div>
+								</div>
+								<div class="col-sm-4">
+									<input type="text" autocomplete="off" class="form-control" name="proofNumber"
+										th:field="*{idProofValue}" value="" id="proofNumber" maxlength="30">
+
+
+								</div>
+
+							</div>
+							<div class="clear"></div>
+
+
+
+							<div class="form_subhead">Service Request</div>
+							<!-- <br> -->
+							<hr>
+							<div class="row">
+
+								<div class="col-sm-2">
+									<div class="field_name">Service Request</div>
+								</div>
+								<!--  <div class="col-sm-3">
+			<input type="text" autocomplete="off"  class="form-control"  name="servicerequest" th:field="*{serviceRequest}" value="" id="servicerequest" minlength="4" maxlength="8">
+    </div> -->
+								<div class="col-sm-3">
+									<div class="input-group mb-3">
+
+
+										<input type="number" autocomplete="off" class="form-control" name="servicerequest"
+											th:field="*{serviceRequest}" value="" id="servicerequest" min="1111" max="99999999">
+
+										<div class="input-group-append">
+											<span class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.service.request')}"></span>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="col-sm-2">
+									<div class="field_name">Dispute ID</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="input-group mb-3">
+										<input type="text" autocomplete="off" class="form-control" name="dispute_id" th:field="*{disputeId}"
+											id="dispute_id" placeholder="For e.g. CDS01012021987356">
+
+
+										<div class="input-group-append">
+											<span class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.dispute.id')}"></span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="row">
+
+								<div class="col-sm-2 ">
+									<div class="field_name">Describe your query<span style="color:red">*</span></div>
+
+								</div>
+								<!-- <div class="col-sm-9 address_box">
+ 		<textarea cols="10" rows=""  th:field="*{describeYourQuery}" class="no_anim"  maxlength="3000" id="textareadesc"></textarea>
+ 		
+		<div class="word_remain">Remaining Characters : <span id="remain-description" class="safe" style="color:red;"></span>
+								
+ 	</div>
+ </div> -->
+								<div class="col-sm-10">
+									<div class="input-group mb-12">
+										<textarea style="width:80%;margin-top:1px;font-size:14px;" rows="5" th:field="*{describeYourQuery}"
+											class="no_anim" maxlength="3000" id="textareadesc"></textarea>
+
+										<div class="input-group-append" th:switch="${consumerUiDetails.formCode}">
+
+											<span th:case="'cd1f3'" class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.staus.of.dispute')}"></span>
+
+											<span th:case="'cd2f3'" class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.how.to.raise.dispute')}"></span>
+
+											<span th:case="'cd3f3'" class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.account.section')}"></span>
+
+											<span th:case="'cd4f3'" class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.enquiry.section')}"></span>
+
+											<span th:case="'cd5f3'" class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.personal.section')}"></span>
+
+											<span th:case="'cd6f3'" class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.contact.section')}"></span>
+
+											<span th:case="'cd7f3'" class="input-group-text" id="basic-addon1">
+												<img th:src="@{/img/info_ic.png}" style="height:14px" class="info_ic"
+													th:title="${@environment.getProperty('ticker.describe.query.cons.dispute.employment.section')}"></span>
+
+										</div>
+
+									</div>
+									<div class="word_remain">Remaining Characters : <span id="remain-description" class="safe"
+											style="color:red;"></span>
+
+									</div>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="infos_box col-sm-12">
+
+									<div style="font-size:14px;color:#833e1f;font-weight:bold">UPLOAD DOCUMENT</div>
+									<hr>
+									<br>
+									<div id="p1">
+										<span id="customFileError"
+											style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+										<label class="form-label" for="customFile"></label>
+										<input onchange="ValidateSize(this)" type="file" accept=".jpg, .jpeg, .png, .pdf"
+											th:field="*{attachment1}" class="form-control" id="customFile"
+											style="width:58%;height:35px;display: inline-block;" />
+										<img th:src="@{/img/add_btn.png}" onclick="document.getElementById('p2').style.display='block'"
+											id="img1" title="Add more document">
+									</div>
+									<br>
+									<div id="p2" style="display:none;"><span id="customFile1Error"
+											style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+										<span id="customFile1Error"
+											style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+
+										<label class="form-label" for="customFile"></label>
+										<input onchange="ValidateSize(this)" type="file" accept=".jpg, .jpeg, .png, .pdf"
+											th:field="*{attachment2}" class="form-control" id="customFile1"
+											style="width:58%;height:35px;display: inline-block;" />
+										<img th:src="@{/img/add_btn.png}" onclick="document.getElementById('p3').style.display='block'"
+											id="img2" title="Add more document">
+										<img th:src="@{/img/remove_btn.png}" id="removeImage2"
+											onclick="document.getElementById('p2').style.display='none'" title="Remove document">
+									</div>
+									<br>
+
+									<div id="p3" style="display:none;">
+										<span id="customFile2Error"
+											style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+
+										<label class="form-label" for="customFile"></label>
+										<input onchange="ValidateSize(this)" type="file" accept=".jpg, .jpeg, .png, .pdf"
+											th:field="*{attachment3}" class="form-control" id="customFile2"
+											style="width:58%;height:35px;display: inline-block;" />
+										<img th:src="@{/img/add_btn.png}" id="img3"
+											onclick="document.getElementById('p4').style.display='block'" title="Add more document">
+										<img th:src="@{/img/remove_btn.png}" id="removeImage3"
+											onclick="document.getElementById('p3').style.display='none'" title="Remove document">
+									</div>
+									<br>
+									<div id="p4" style="display:none;">
+										<span id="customFile3Error"
+											style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+										<label class="form-label" for="customFile"></label>
+										<input onchange="ValidateSize(this)" type="file" accept=".jpg, .jpeg, .png, .pdf"
+											th:field="*{attachment4}" class="form-control" id="customFile3"
+											style="width:58%;height:35px;display: inline-block;" />
+										<img th:src="@{/img/add_btn.png}" id="img4"
+											onclick="document.getElementById('p5').style.display='block'" title="Add more document">
+										<img th:src="@{/img/remove_btn.png}" id="removeImage4"
+											onclick="document.getElementById('p4').style.display='none'" title="Remove document">
+									</div>
+									<br>
+									<div id="p5" style="display:none;">
+										<span id="customFile4Error"
+											style="color:red;margin-left:15px;font-weight:bold;display: block;"></span>
+										<label class="form-label" for="customFile"></label>
+										<input onchange="ValidateSize(this)" type="file" accept=".jpg, .jpeg, .png, .pdf"
+											th:field="*{attachment5}" class="form-control" id="customFile4"
+											style="width:58%;height:35px;display: inline-block;" />
+										<img th:src="@{/img/add_btn.png}" id="img5" title="Add more document">
+										<img th:src="@{/img/remove_btn.png}" id="removeImage5" title="Remove document">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div style="padding:0 20px;">
+									<p class="attachment_header_desc"><strong>
+											When uploading documents, please note the following :
+										</strong></p>
+									<ul class="attachement_desc">
+										<li>Ensure the documents are not password-protected.</li>
+										<li>Upload latest address proof wherein address and transactions are not older than 3 months from
+											current date.</li>
+										<li>Upload documents with extension as PNG, JPG, JPEG, PDF etc.</li>
+										<li>Max. file size is 5MB per upload.</li>
+										<li>Max. 5 Attachments are permitted at a time.</li>
+									</ul>
+								</div>
+
+							</div>
+
+							<!-- <hr class="mt-0"> -->
+							<!-- <div style="background-color: #e5e5e5;padding: 1rem 1rem;margin-bottom: 1rem;">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingOne">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse"
+											data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="toggleBtn">
+											<div>
+												<h1 class="form-head mb-0" style="font-weight: 600;color: #000;">Update Your Payment Details
+												</h1><br>
+												<p class="sub_para mb-0">We require these details to compensate for any delays in resolving your
+													query/request.
+												</p>
+											</div>
+										</button>
+									</h2>
+									<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<div class="warn-msg p-3  border d-flex gap-4 flex-column flex-md-row rounded-lg"
+												style="color: #004364;">
+												<div>
+													<svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 40 40"
+														fill="none">
+														<g clip-path="url(#clip0_355_6367)">
+															<path
+																d="M20 40C31.0457 40 40 31.0457 40 20C40 8.95431 31.0457 0 20 0C8.95431 0 0 8.95431 0 20C0 31.0457 8.95431 40 20 40Z"
+																fill="white" />
+															<path
+																d="M16.884 26.6664H23.1146M20 7.99976V9.33312M28.4854 11.5144L27.5426 12.4571M32 19.9998H30.6666M9.33336 19.9998H8M12.4574 12.4571L11.5146 11.5144M15.2854 24.7144C14.3531 23.782 13.7184 22.5941 13.4613 21.301C13.2042 20.0078 13.3363 18.6674 13.841 17.4494C14.3456 16.2313 15.2001 15.1902 16.2964 14.4578C17.3926 13.7253 18.6815 13.3343 20 13.3343C21.3185 13.3343 22.6074 13.7253 23.7036 14.4578C24.7999 15.1902 25.6544 16.2313 26.159 17.4494C26.6637 18.6674 26.7958 20.0078 26.5387 21.301C26.2816 22.5941 25.6469 23.782 24.7146 24.7144L23.984 25.4438C23.5662 25.8615 23.235 26.3575 23.0089 26.9034C22.7829 27.4493 22.6666 28.0343 22.6666 28.6251V29.3331C22.6666 30.0403 22.3857 30.7186 21.8856 31.2187C21.3855 31.7188 20.7073 31.9998 20 31.9998C19.2927 31.9998 18.6145 31.7188 18.1144 31.2187C17.6143 30.7186 17.3334 30.0403 17.3334 29.3331V28.6251C17.3334 27.4318 16.8586 26.2864 16.016 25.4438L15.2854 24.7144Z"
+																stroke="#006685" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+														</g>
+														<defs>
+															<clipPath id="clip0_355_6367">
+																<rect width="40" height="40" fill="white" />
+															</clipPath>
+														</defs>
+													</svg>
+												</div>
+												<div>
+													<h3 class="mb-3">Why is this important?</h3>
+													<ul class="ml-5 mb-0" style="word-break: break-all;">
+														<li>According to RBI guidelines, if your dispute/query/request is not resolved within 30
+															days of
+															submission, you are eligible for a compensation of Rs.100 for each day of delay. The
+															amount will
+															be
+															credited to the account details you provide below.</li>
+														<li>Compensation will only be credited to domestic or local accounts and not NRI accounts.
+														</li>
+													</ul>
+
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form_subhead">IDENTIFICATION DETAILS</div>
+											<hr>
+											<br>
+
+											<div class="row pr-2">
+												<div class=" col-lg-3 col-md-12 mb-2">
+													<div class="field_name">ID Type<span class="required_icon">*</span></div>
+												</div>
+												<div class="col-lg-3 col-md-12 mb-4 mb-lg-2">
+													<select name="id_type" class="form-control select shadow-none" style="font-size:14px;"
+														th:field="*{paymentIdType}" id="id_type">
+														<option value="" title="">Select</option>
+														<option th:each="entry : ${idProofMap.entrySet()}" th:value="${entry.key}"
+															th:utext="${entry.value}"></option>
+													</select>
+												</div>
+												<div class=" col-lg-3 col-md-12 mb-2">
+													<div class="field_name ">ID Number<span class="required_icon">*</span></div>
+												</div>
+												<div class=" col-lg-3 col-md-12 mb-1">
+													<input type="text" autocomplete="off" name="paymentIdNumber" class="form-control shadow-none"
+														value="" id="id_number" th:field="*{paymentIdNumber}">
+												</div>
+											</div>
+
+
+											<br>
+											<div class="row pr-2">
+												<div class=" col-lg-3 col-md-12 mb-2">
+													<div class="field_name">Account Holder Name<span class="required_icon">*</span>
+													</div>
+												</div>
+												<div class=" col-lg-3 col-md-12 mb-4 mb-lg-2">
+													<div class="input-group mb-3">
+														<input type="text" autocomplete="off" class="form-control shadow-none"
+															name="bankAccountHolderName" value="" id="holder_name" minlength="3" maxlength="80"
+															th:field="*{bankAccountHolderName}">
+													</div>
+												</div>
+											</div>
+
+											<div class="d-flex align-items-center gap-2">
+												<div class="form_subhead mb-0">Account INFORMATION</div><br>
+
+											</div>
+											<hr>
+
+
+											<div class="row pr-2">
+												<div class=" col-lg-3 col-md-12 mb-2">
+													<div class="field_name">IFSC Code<span class="required_icon">*</span></div>
+												</div>
+												<div class="col-lg-3 col-md-12 mb-4 mb-lg-2">
+													<input type="text" autocomplete="off" name="ifscCode" class="form-control shadow-none"
+														th:field="*{paymentInformationDetails.ifscCode}" minlength="11" maxlength="11" value=""
+														id="ifsc">
+												</div>
+												<div class=" col-lg-3 col-md-12 mb-2">
+													<div class="field_name">Bank Name<span class="required_icon">*</span></div>
+												</div>
+												<div class=" col-lg-3 col-md-12 mb-1">
+													<input type="text" autocomplete="off" name="bankname" class="form-control shadow-none"
+														th:field="*{paymentInformationDetails.bankName}" value="" id="bankname" minlength="3"
+														maxlength="50">
+												</div>
+											</div>
+											<br>
+											<div class="row pr-2">
+												<div class="col-lg-3 col-md-12 mb-2">
+													<div class="field_name">Bank Account Type<span class="required_icon">*</span></div>
+												</div>
+												<div class="col-lg-3 col-md-12 mb-1">
+													<select name="proofId" class="form-control shadow-none"
+														th:field="*{paymentInformationDetails.bankAccountType}" style="font-size:14px;"
+														id="account_type">
+														<option value="" title="">Select Account Type</option>
+														<option th:each="entry : ${bankAccountTypeMap.entrySet()}" th:value="${entry.key}"
+															th:utext="${entry.value}">
+														</option>
+													</select>
+												</div>
+											</div>
+											<br>
+											<div class="row pr-2">
+												<div class=" col-lg-3 col-md-12 mb-2">
+													<div class="field_name">Account Number<span class="required_icon">*</span></div>
+												</div>
+												<div class="col-lg-3 col-md-12 mb-4 mb-lg-2">
+													<input type="password" autocomplete="off" name="accountnumber"
+														class="form-control shadow-none accnt" th:field="*{paymentInformationDetails.accountNumber}"
+														value="" id="account_number" minlength="5" maxlength="20">
+												</div>
+												<div class="  col-lg-3 col-md-12 mb-2">
+													<div class="field_name">Confirm Account Number<span class="required_icon">*</span></div>
+												</div>
+												<div class=" col-lg-3 col-md-12 mb-1">
+													<input type="text" autocomplete="off" name="confirm_account_number"
+														class="form-control shadow-none" value="" id="confirm_account_number" minlength="5"
+														maxlength="20" pattern="^(?=.*[a-zA-Z0-9])[a-zA-Z0-9.-/]{5,20}$" onblur="validate(this)">
+												</div>
+											</div>
+											<br>
+											<div class="row pr-2 mb-4">
+												<div class=" col-lg-3 col-md-12 mb-2">
+													<div class="field_name">Bank Address<span class="required_icon">*</span></div>
+												</div>
+												<div class=" col-lg-9 col-md-12 mb-2">
+													<div class="input-group mb-12">
+														<textarea type="text" autocomplete="off" class="form-control shadow-none" name="bankaddress"
+															th:field="*{paymentInformationDetails.bankAddress}" value="" minlength="3" maxlength="100"
+															id="bank_address" onblur="validate(this)"></textarea>
+													</div>
+												</div>
+											</div>
+											<hr>
+											<label class="container-cb">
+												By checking this box, I agree to allow the use of my account details for the compensation
+												process
+												<input type="checkbox" th:field="*{consent}" name="consent" id="checkAgree">
+												<span class="checkmark"></span>
+											</label>
+											<p class="sub_para mt-4">Disclaimer: I understand that the above details will be used for the
+												purpose of
+												compensation in an event where the dispute resolution process is delayed beyond 30 days.</p>
+										</div>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- <div>
+								<h1 class="form-head mb-0 mt-5" style="font-weight: 600;color: #000;">Update Your Payment Details</h1>
+								<br>
+								<p class="sub_para mb-0">We require these details to compensate for any delays in resolving your
+									query/request.
+								</p>
+								<br>
+								<br>
+
+								<div class="warn-msg p-3  border d-flex gap-4 flex-column flex-md-row rounded-lg"
+									style="color: #004364;">
+									<div>
+										<svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 40 40" fill="none">
+											<g clip-path="url(#clip0_355_6367)">
+												<path
+													d="M20 40C31.0457 40 40 31.0457 40 20C40 8.95431 31.0457 0 20 0C8.95431 0 0 8.95431 0 20C0 31.0457 8.95431 40 20 40Z"
+													fill="white" />
+												<path
+													d="M16.884 26.6664H23.1146M20 7.99976V9.33312M28.4854 11.5144L27.5426 12.4571M32 19.9998H30.6666M9.33336 19.9998H8M12.4574 12.4571L11.5146 11.5144M15.2854 24.7144C14.3531 23.782 13.7184 22.5941 13.4613 21.301C13.2042 20.0078 13.3363 18.6674 13.841 17.4494C14.3456 16.2313 15.2001 15.1902 16.2964 14.4578C17.3926 13.7253 18.6815 13.3343 20 13.3343C21.3185 13.3343 22.6074 13.7253 23.7036 14.4578C24.7999 15.1902 25.6544 16.2313 26.159 17.4494C26.6637 18.6674 26.7958 20.0078 26.5387 21.301C26.2816 22.5941 25.6469 23.782 24.7146 24.7144L23.984 25.4438C23.5662 25.8615 23.235 26.3575 23.0089 26.9034C22.7829 27.4493 22.6666 28.0343 22.6666 28.6251V29.3331C22.6666 30.0403 22.3857 30.7186 21.8856 31.2187C21.3855 31.7188 20.7073 31.9998 20 31.9998C19.2927 31.9998 18.6145 31.7188 18.1144 31.2187C17.6143 30.7186 17.3334 30.0403 17.3334 29.3331V28.6251C17.3334 27.4318 16.8586 26.2864 16.016 25.4438L15.2854 24.7144Z"
+													stroke="#006685" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+											<defs>
+												<clipPath id="clip0_355_6367">
+													<rect width="40" height="40" fill="white" />
+												</clipPath>
+											</defs>
+										</svg>
+									</div>
+									<div>
+										<h3 class="mb-3">Why is this important?</h3>
+										<ul class="ml-5 mb-0" style="word-break: break-all;">
+											<li>According to RBI guidelines, if your dispute/query/request is not resolved within 30 days of
+												submission, you are eligible for a compensation of Rs.100 for each day of delay. The amount will
+												be
+												credited to the account details you provide below.</li>
+											<li>Compensation will only be credited to domestic or local accounts and not NRI accounts.</li>
+										</ul>
+
+									</div>
+								</div>
+								<br>
+								<br>
+								<div class="form_subhead">IDENTIFICATION DETAILS</div>
+							<hr>
+							<br>
+							
+							<div class="row pr-2">
+								<div class=" col-lg-3 col-md-12 mb-2">
+									<div class="field_name">ID Type<span class="required_icon">*</span></div>
+								</div>
+								<div class="col-lg-3 col-md-12 mb-4 mb-lg-2">
+									<select name="id_type" class="form-control select shadow-none"
+										style="font-size:14px;" th:field="*{paymentIdType}"  id="id_type" 
+										
+										>
+										<option value="" title="">Select</option>
+										<option th:each="entry : ${idProofMap.entrySet()}"
+											th:value="${entry.key}" th:utext="${entry.value}"></option>
+									</select>
+								</div>
+								<div class=" col-lg-3 col-md-12 mb-2">
+									<div class="field_name ">ID Number<span class="required_icon">*</span></div>
+								</div>
+								<div class=" col-lg-3 col-md-12 mb-1">
+									<input type="text" autocomplete="off" name="paymentIdNumber"
+										class="form-control shadow-none" value="" id="id_number"
+										 th:field="*{paymentIdNumber}"
+										
+										>
+								</div>
+							</div>
+							
+							
+							<br>
+							<div class="row pr-2">
+								<div class=" col-lg-3 col-md-12 mb-2">
+									<div class="field_name">Account Holder Name<span class="required_icon">*</span>
+									</div>
+								</div>
+								<div class=" col-lg-3 col-md-12 mb-4 mb-lg-2">
+									<div class="input-group mb-3">
+										<input type="text" autocomplete="off"
+											class="form-control shadow-none" name="bankAccountHolderName"
+											 value="" id="holder_name" minlength="3"
+											maxlength="80" th:field="*{bankAccountHolderName}"
+											
+											>
+									</div>
+								</div>
+							</div>
+							
+								<div class="d-flex align-items-center gap-2">
+									<div class="form_subhead mb-0">Account INFORMATION</div><br> -->
+									<!-- <div class="input-group-append">
+									<span class="input-group-text" id="basic-addon1"   data-tooltip="tooltip" data-flow="right">
+										<img src="../static/img/info_ic.png" class="info_ic" th:title="${@environment.getProperty('ticker.describe.your.query.commercial')}">
+								</span>
+								
+								</div> -->
+								<!-- </div>
+								<hr> -->
+								<!-- <div class="row pr-2">
+									<div class=" col-lg-3 col-md-12 mb-2">
+										<div class="field_name">Account Holder Name<span class="required_icon">*</span>
+										</div>
+									</div>
+									<div class="  col-lg-3 col-md-12 mb-3 mb-lg-2">
+										<div class="input-group mb-3">
+											<input type="text" autocomplete="off" class="form-control shadow-none"
+												th:field="*{paymentInformationDetails.bankAccountHolderName}" name="bankaccountholdername"
+												value="" id="holder_name" minlength="3" maxlength="80">
+										</div>
+									</div>
+								</div>
+								<div class="row pr-2">
+									<div class=" col-lg-3 col-md-12 mb-2">
+										<div class="field_name">
+											Identity Proof <span style="color: red">*</span>
+										</div>
+									</div>
+									<div class="  col-lg-3 col-md-12 mb-3 mb-lg-2">
+										<div class="input-group mb-3">
+											<select name="proofId" class="form-control" id="paymentIdType"
+												th:field="*{paymentInformationDetails.paymentIdType}" onchange="getproofData();"
+												style="border: 1px solid rgb(198, 198, 200); font-size: 14px">
+												<option value="" title="">Select</option>
+												<option th:each="entry : ${idProofMap.entrySet()}" th:value="${entry.key}"
+													th:utext="${entry.value}">
+												</option>
+											</select>
+										</div>
+									</div>
+									<div class=" col-lg-3 col-md-12 mb-2">
+										<div class="field_name">
+											Identity Proof No. <span style="color: red">*</span>
+										</div>
+									</div>
+									<div class=" col-lg-3 col-md-12 mb-1">
+										<input type="text" autocomplete="off" class="form-control" name="paymentIdNumber"
+											th:field="*{paymentInformationDetails.paymentIdNumber}" value="" id="paymentIdNumber"
+											maxlength="30">
+									</div>
+								</div> -->
+								<!-- <div class="row pr-2">
+									<div class=" col-lg-3 col-md-12 mb-2">
+										<div class="field_name">IFSC Code<span class="required_icon">*</span></div>
+									</div>
+									<div class="col-lg-3 col-md-12 mb-4 mb-lg-2">
+										<input type="text" autocomplete="off" name="ifscCode" class="form-control shadow-none"
+											th:field="*{paymentInformationDetails.ifscCode}" minlength="11" maxlength="11" value="" id="ifsc">
+									</div>
+									<div class=" col-lg-3 col-md-12 mb-2">
+										<div class="field_name">Bank Name<span class="required_icon">*</span></div>
+									</div>
+									<div class=" col-lg-3 col-md-12 mb-1">
+										<input type="text" autocomplete="off" name="bankname" class="form-control shadow-none"
+											th:field="*{paymentInformationDetails.bankName}" value="" id="bankname" minlength="3"
+											maxlength="50">
+									</div>
+								</div>
+								<br>
+								<div class="row pr-2">
+									<div class="col-lg-3 col-md-12 mb-2">
+										<div class="field_name">Bank Account Type<span class="required_icon">*</span></div>
+									</div>
+									<div class="col-lg-3 col-md-12 mb-1">
+										<select name="proofId" class="form-control shadow-none"
+											th:field="*{paymentInformationDetails.bankAccountType}" style="font-size:14px;" id="account_type">
+											<option value="" title="">Select Account Type</option>
+											<option value="synd" title="">Select Account Type</option>
+
+											<option th:each="entry : ${bankAccountTypeMap.entrySet()}" th:value="${entry.key}"
+												th:utext="${entry.value}">
+											</option>
+										</select>
+									</div>
+								</div>
+								<br>
+								<div class="row pr-2">
+									<div class=" col-lg-3 col-md-12 mb-2">
+										<div class="field_name">Account Number<span class="required_icon">*</span></div>
+									</div>
+									<div class="col-lg-3 col-md-12 mb-4 mb-lg-2">
+										<input type="password" autocomplete="off" name="accountnumber"
+											class="form-control shadow-none accnt" th:field="*{paymentInformationDetails.accountNumber}"
+											value="" id="account_number" minlength="5" maxlength="20">
+									</div>
+									<div class="  col-lg-3 col-md-12 mb-2">
+										<div class="field_name">Confirm Account Number<span class="required_icon">*</span></div>
+									</div>
+									<div class=" col-lg-3 col-md-12 mb-1">
+										<input type="text" autocomplete="off" name="confirm_account_number" class="form-control shadow-none"
+											value="" id="confirm_account_number" minlength="5" maxlength="20">
+									</div>
+								</div>
+								<br>
+								<div class="row pr-2 mb-4">
+									<div class=" col-lg-3 col-md-12 mb-2">
+										<div class="field_name">Bank Address<span class="required_icon">*</span></div>
+									</div>
+									<div class=" col-lg-9 col-md-12 mb-2">
+										<div class="input-group mb-12">
+											<textarea type="text" autocomplete="off" class="form-control shadow-none" name="bankaddress"
+												th:field="*{paymentInformationDetails.bankAddress}" value="" minlength="3" maxlength="100"
+												id="bank_address"></textarea>
+										</div>
+									</div>
+								</div>
+								<hr>
+								<label class="container-cb">
+									By checking this box, I agree to allow the use of my account details for the compensation process
+									<input type="checkbox" th:field="*{consent}" name="consent">
+									<span class="checkmark"></span>
+								</label>
+								<p class="sub_para mt-4">Disclaimer: I understand that the above details will be used for the purpose of
+									compensation in an event where the dispute resolution process is delayed beyond 30 days.</p>
+							</div> -->
+							<div style="font-size:14px;color:#833e1f;font-weight:bold">UPDATE YOUR PAYMENT DETAILS</div>
+							<hr>
+							<div class="row">
+								<div style="padding:0 20px;">
+									<p class="attachment_header_desc"><strong>
+										Why is this important?
+										</strong></p>
+									<ul class="attachement_desc">
+										<li>In adherence to RBI guidelines, the resolution of your dispute or complaint is required to be completed within 30 days from date of receipt of the dispute either by the banks/financial institution   and / or by TU CIBIL. Failure of either the bank/financial Institutions and / or TU CIBIL entitles you to receive a compensation of ₹100/- for each day of delay from the bank/financial Institutions and/ or TU CIBIL ( as applicable) , shall be credited to the provided account details. </li>
+										<li> Kindly note that compensation is applicable solely to domestic or local accounts and is not valid for NRI accounts.  </li>
+										<li>All fields in this section are mandatory. Help us address your complaint promptly by providing the following details to compensate for potential delays. If you skip this step now, you can share the information later by logging into your CIBIL dashboard before the closure of dispute.</li>
+									</ul>
+								</div>
+							</div>
+
+								<div class="d-flex mb-3 ms-3 input-group-conatiner" >
+									<div class=" input-group w-auto " style="padding:8px 12px;border-radius: 5px;">
+										<input id="accountInfoRadio" type="radio" name="acc_info"  class="acc_info_radio"   checked onchange="toggleAccInfo('acc',this.value)" autocomplete="off">
+										<label for="accountInfoRadio" style="line-height: 1.4;margin-bottom: 0;font-size: 14px;font-weight: 600;text-transform: capitalize;">	Enter account information</label>
+									</div>
+									<div class="input-group w-auto" style="padding: 8px 12px;border-radius: 5px;">
+										<input id="accountInfoRa" type="radio" name="acc_info"  class="acc_info_radio"  onchange="toggleAccInfo('note',this.value)" autocomplete="off">
+										<label for="accountInfoRadio" style="line-height: 1.4;margin-bottom: 0;font-size: 14px;font-weight: 600;text-transform: capitalize;">	Update this later</label>
+									</div>
+								</div>
+								<p class="">Note: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati rem voluptatem fugit aliquam voluptate minus a quasi, eveniet earum nisi!</p>
+								<!-- <div class=" mb-2">
+									<div class="field_name">
+										Enter accont information
+									</div>
+								</div> -->
+								
+			
+
+
+							<div id="showAccInfo" style="background-color: #e9e9e9;padding: 1.5rem;">
+								<div class="row pr-2">
+									<div class=" col-lg-2 col-md-12 mb-2">
+										<div class="field_name">Account Holder Name<span class="required_icon">*</span>
+										</div>
+									</div>
+									<div class="  col-lg-4 col-md-12 mb-3 mb-lg-2"  s>
+										<div class="input-group mb-3" style="border-radius: 30px;">
+											<input type="text" autocomplete="off" class="form-control shadow-none"
+												th:field="*{paymentInformationDetails.bankAccountHolderName}" name="bankaccountholdername"
+												value="" id="holder_name" minlength="3" maxlength="80" placeholder="Enter name as per official records">
+										</div>
+									</div>
+								</div>
+								<div class="row pr-2">
+									<div class=" col-lg-2 col-md-12 mb-2">
+										<div class="field_name">
+											Identity Proof <span style="color: red">*</span>
+										</div>
+									</div>
+									<div class="  col-lg-4 col-md-12 mb-3 mb-lg-2">
+										<div class="input-group mb-3">
+											<select name="proofId" class="form-control" id="paymentIdType"
+												th:field="*{paymentInformationDetails.paymentIdType}" onchange="getproofData();"
+												style="border: 1px solid rgb(198, 198, 200); font-size: 14px">
+												<option value="" title="">Select</option>
+												<option th:each="entry : ${idProofMap.entrySet()}" th:value="${entry.key}"
+													th:utext="${entry.value}">
+												</option>
+											</select>
+										</div>
+									</div>
+									<div class=" col-lg-2 col-md-12 mb-2">
+										<div class="field_name">
+											Identity Proof No. <span style="color: red">*</span>
+										</div>
+									</div>
+									<div class=" col-lg-4 col-md-12 mb-1">
+										<input type="text" autocomplete="off" class="form-control" name="paymentIdNumber"
+											th:field="*{paymentInformationDetails.paymentIdNumber}" value="" id="paymentIdNumber"
+											maxlength="30">
+									</div>
+								</div>
+								<div class="row pr-2">
+									<div class=" col-lg-2 col-md-12 mb-2">
+										<div class="field_name">IFSC Code<span class="required_icon">*</span></div>
+									</div>
+									<div class="col-lg-4 col-md-12 mb-4 mb-lg-2">
+										<input type="text" autocomplete="off" name="ifscCode" class="form-control shadow-none"
+											th:field="*{paymentInformationDetails.ifscCode}" minlength="11" maxlength="11" value="" id="ifsc" placeholder="Enter your bank branch's unique IFSC">
+									</div>
+									<div class=" col-lg-2 col-md-12 mb-2">
+										<div class="field_name">Bank Name<span class="required_icon">*</span></div>
+									</div>
+									<div class=" col-lg-4 col-md-12 mb-1">
+										<input type="text" autocomplete="off" name="bankname" class="form-control shadow-none"
+											th:field="*{paymentInformationDetails.bankName}" value="" id="bankname" minlength="3"
+											maxlength="50" placeholder="Enter your bank’s name">
+									</div>
+								</div>
+								<br>
+								<div class="row pr-2">
+									<div class="col-lg-2 col-md-12 mb-2">
+										<div class="field_name">Bank Account Type<span class="required_icon">*</span></div>
+									</div>
+									<div class="col-lg-4 col-md-12 mb-1">
+										<select name="proofId" class="form-control shadow-none"
+											th:field="*{paymentInformationDetails.bankAccountType}" style="font-size:14px;" id="account_type">
+											<option value="" title="">Select your account type</option>
+											
+	
+											<option th:each="entry : ${bankAccountTypeMap.entrySet()}" th:value="${entry.key}"
+												th:utext="${entry.value}">
+											</option>
+										</select>
+									</div>
+								</div>
+								<br>
+								<div class="row pr-2">
+									<div class=" col-lg-2 col-md-12 mb-2">
+										<div class="field_name">Account Number<span class="required_icon">*</span></div>
+									</div>
+									<div class="col-lg-4 col-md-12 mb-4 mb-lg-2">
+										<input type="text" autocomplete="off" name="accountnumber" class="form-control shadow-none accnt"
+											th:field="*{paymentInformationDetails.accountNumber}" value="" id="account_number" minlength="5"
+											maxlength="20" placeholder="Enter your bank account number">
+									</div>
+									<div class="  col-lg-2 col-md-12 mb-2">
+										<div class="field_name">Confirm Account Number<span class="required_icon">*</span></div>
+									</div>
+									<div class=" col-lg-4 col-md-12 mb-1">
+										<input type="text" autocomplete="off" name="confirm_account_number" class="form-control shadow-none"
+											value="" id="confirm_account_number" minlength="5" maxlength="20" placeholder="Re-enter your bank account number">
+									</div>
+								</div>
+								<br>
+								<div class="row pr-2 mb-4">
+									<div class=" col-lg-2 col-md-12 mb-2">
+										<div class="field_name">Bank Address<span class="required_icon">*</span></div>
+									</div>
+									<div class=" col-lg-9 col-md-12 mb-2">
+										<div class="input-group mb-12">
+											<textarea type="text" autocomplete="off" class="form-control shadow-none" name="bankaddress" 
+												th:field="*{paymentInformationDetails.bankAddress}" value="" minlength="3" maxlength="100"
+												id="bank_address" placeholder="Enter the complete address of your bank branch where your account is registered"></textarea>
+										</div>
+									</div>
+								</div>
+								<hr>
+								<div class="d-flex " style="word-break: break-all;">
+								<label class="container-cb">
+									<input type="checkbox" th:field="*{consent}" name="consent" checked>
+									<span class="checkmark"></span>
+								</label>
+								<p>I undertake that the bank account details provided by me, belong to me and are correct and accurate and the said account is a resident account in in India. I understand that if the said details provided by me are incorrect and inaccurate the amount payable to me, if any, will be credited to the wrong account and TU CIBIL will not be responsible for the same in any form or manner. I further understand that any amount payable as compensation under the RBI Circular dated October 26, 2023 bearing No. RBI/2023-24/72 DoR.FIN.REC.48/20.16.003/2023-24 will be applicable only under the terms as contained in the said circular.</p>
+								</div>
+							</div>
+
+							<div id="noteInfo">
+								<span>You can only update these details until the closure of your complaint. Failure to update might lead you to forfeit the compensation.</span>
+							</div>
+							<div class="row">
+								<div>
+									<img id="captchaImage" th:src="*{'data:realCaptcha/jpg;base64,'+ realCaptcha}" />
+
+
+									<img th:src="@{/img/refreshCaptcha.png}" style="margin-left:10px;height:20px" id="refreshButton"
+										title="Refresh Captcha.">
+
+									<input id="hiddenCaptchaText" type="hidden" th:field="*{hiddenCaptcha}" />
+									<input id="captchaImageSource" type="hidden" th:field="*{realCaptcha}" />
+								</div>
+								<div class="clear" style="height:10px;"></div>
+								<div class="col">
+									<div id="errorCaptcha">
+										<p><span id="errorCaptchaMessage" th:if="${errorMessage}" th:text="${errorMessage}"
+												style="color:red;">Error</span></p>
+										<p style="font-size:11px; margin-bottom:3px;font-weight: bold;">Enter the characters shown in the
+											image<span style="color:red">*</span>
+									</div>
+									<input type="text" autocomplete="off" class="form-control" name="kaptcha" minlength="5" maxlength="5"
+										th:field="*{captcha}" value="" id="kaptcha" style="max-width:180px;">
+
+								</div>
+							</div>
+							<div class="row d-flex justify-content-center">
+								<hr>
+
+								<input type="submit" id="form3Submit" value="Submit" class="o_btn submit">
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+
+
+
+			<div class="page-footer">© 2020 Copyright:
+				COPYRIGHT 2016 TRANSUNION CIBIL LIMITED (FORMERLY: CREDIT INFORMATION BUREAU (INDIA) LIMITED) ALL RIGHTS
+				RESERVED.
+
+				<div class="footer-links">
+					<ul class="column">
+						<!-- <li class="footer-item footer-item-col-1 footer-item-row-1"><a href="#">PRIVACY</a></li>
+			<li class="footer-item footer-item-col-1 footer-item-row-2"><a href="#">SITEMAP</a></li>
+			<li class="footer-item footer-item-col-1 footer-item-row-3"><a href="#">SUIT FILED CASES</a></li> -->
+						<li class="footer-item footer-item-col-1 footer-item-row-4"><a
+								th:href="${@environment.getProperty('redirect.termsAndConditions.page.url')}">TERMS AND CONDITIONS</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="clear"></div>
+
+
+		</div>
+	</div>
+	<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+		style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions"
+		class="ui-helper-hidden-accessible"></span>
+	<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0"
+		style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions"
+		class="ui-helper-hidden-accessible"></span>
+	<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+	<script></script>
+	<div role="tooltip" class="ui-tooltip ui-widget ui-corner-all ui-widget-content" id="ui-id-6"
+		style="top: 115px; left: 167px; display: block; opacity: 0;">
+		<div class="ui-tooltip-content">CIBIL - Empowering You</div>
+	</div>
+</body>
+
+</html>
